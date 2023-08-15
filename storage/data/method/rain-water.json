@@ -1,0 +1,65 @@
+{
+    "Title": "Yağmur suyu",
+    "Description": "Yağmur suyu hesabı",
+    "Params": {
+        "Location": {
+            "Name": "Lokasyon",
+            "Type": "Input",
+            "Rules": "required|exists:api__city_rain,city",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "LocationRain",
+                "Columns": "city"
+            }
+        },
+        "RainArea": {
+            "Name": "Yağmur alanı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m2"
+        },
+        "RoofType": {
+            "Name": "Çatı tipi",
+            "Type": "Input",
+            "Rules": "required|exists:api__roof_type,roof_type",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "RoofType",
+                "Columns": "roof_type"
+            }
+        },
+        "RainPipe": {
+            "Name": "Yağmur borusu",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "Adet"
+        },
+        "RainAvg": {
+            "Name": "Ortalama yağış",
+            "Type": "Output",
+            "Unit": "L/snH"
+        },
+        "UnloadFactor": {
+            "Name": "Boşaltma faktörü",
+            "Type": "Output"
+        },
+        "SuddenNeed": {
+            "Name": "Ani ihtiyaç",
+            "Type": "Output",
+            "Short": "Qr",
+            "Unit": "Lt/sn"
+        },
+        "FlowSection": {
+            "Name": "Akış kesiti",
+            "Type": "Output",
+            "Short": "D",
+            "Unit": "W"
+        },
+        "ColumnDiameter": {
+            "Name": "Kolon Çapı",
+            "Type": "Output",
+            "Short": "DN",
+            "Unit": "W"
+        }
+    }
+}

@@ -1,0 +1,1099 @@
+openapi: 3.0.0
+info:
+  title: Antmekanik API
+  description: Ehvac Antmekanik
+  contact:
+    email: fatihdemir178@gmail.com
+  version: 1.0.0-oas3
+servers:
+- url: http://ehvac.antmekanik.com/api
+paths:
+  /methods:
+    get:
+      summary: Metodlar ve Metod Verileri
+      description: Tüm metodları ve bu metod için gerekli verileri döner, Yine verilere
+        ait açıklama ve varsayılan değer gibi detay bilgilerini içerir.
+      operationId: methods
+      responses:
+        "200":
+          description: OK
+  /method/{method}:
+    get:
+      summary: Metod Verileri
+      description: Bellirli bir metod için gerekli ve varsayılan tüm verileri çeker.
+      operationId: method
+      parameters:
+      - name: method
+        in: path
+        description: Veri tipi giriniz (Örnek = boiler, burner, fuel-amaunt, fuel-amaunt-yearly,
+          heat-exchanger)
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /data/{type}:
+    get:
+      summary: Veri çekme
+      description: Genel veri tiplerini çekme
+      operationId: datatype
+      parameters:
+      - name: type
+        in: path
+        description: Veri tipi giriniz (Örnek = BuildType,Burner,Boiler,LocationRain,DistributionPipe,Equipment,FuelType,HeatExchanger,LiquitFuelType,NominalDiameter,Producer,RainColumnDiameter,RoofType,Seller,Valve,WaterExpansion)
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /data:
+    post:
+      summary: Veri çekme
+      description: Genel veri tiplerini çekme
+      operationId: data
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Data'
+      responses:
+        "200":
+          description: OK
+  /boiler:
+    post:
+      summary: Kazan Hesabı
+      description: Kazan hesabı ve ısı yüzeyi hesabı
+      operationId: boiler
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Boiler'
+      responses:
+        "200":
+          description: OK
+  /heat-exchanger:
+    post:
+      summary: Isı Değiştirici
+      description: Isı değiştirici hesabı
+      operationId: heat-exchanger
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HeatExchanger'
+      responses:
+        "200":
+          description: OK
+  /burner:
+    post:
+      summary: Burner
+      description: Brulor seçimi
+      operationId: burner
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Burner'
+      responses:
+        "200":
+          description: OK
+  /fuel-amount:
+    post:
+      summary: Yakıt Miktarı
+      description: Yakıt Miktarı
+      operationId: fuel-amount
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FuelAmount'
+      responses:
+        "200":
+          description: OK
+  /fuel-amount-yearly:
+    post:
+      summary: Yıllık Yakıt Miktarı
+      description: Yakıt Miktarı
+      operationId: fuel-amount-yearly
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FuelAmountYearly'
+      responses:
+        "200":
+          description: OK
+  /open-expansion-tank:
+    post:
+      summary: Açık Genleşme Deposu
+      description: Açık Genleşme Deposu
+      operationId: open-expansion-tank
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenExpansionTank'
+      responses:
+        "200":
+          description: OK
+  /closed-expansion-tank:
+    post:
+      summary: Kapalı Genleşme Deposu
+      description: Kapalı Genleşme Deposu
+      operationId: closed-expansion-tank
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClosedExpansionTank'
+      responses:
+        "200":
+          description: OK
+  /circulation-pump:
+    post:
+      summary: Dolaşım Pompası
+      operationId: circulation-pump"
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CirculationPump'
+      responses:
+        "200":
+          description: OK
+  /boyler:
+    post:
+      summary: Boyler hesabı
+      description: Boyler Hesabı
+      operationId: boyler
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Boyler'
+      responses:
+        "200":
+          description: OK
+  /rain-water:
+    post:
+      summary: Yağmur suyu
+      description: Yağmur suyu Hesabı
+      operationId: rain-water
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RainWater'
+      responses:
+        "200":
+          description: OK
+  /hydrophore:
+    post:
+      summary: Hidrofor hesabı
+      description: Hidrofor hesabı
+      operationId: hydrophore
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hydrophore'
+      responses:
+        "200":
+          description: OK
+  /collector:
+    post:
+      summary: Kollektör hesabı
+      description: Kollektör hesabı
+      operationId: collector
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Collector'
+      responses:
+        "200":
+          description: OK
+  /solar-energy:
+    post:
+      summary: Güneş enerjisi
+      description: Güneş enerjisi
+      operationId: solar-energy
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SolarEnergy'
+      responses:
+        "200":
+          description: OK
+  /paddlebox:
+    post:
+      summary: Davlumbaz
+      description: Davlumbaz
+      operationId: paddlebox
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Paddlebox'
+      responses:
+        "200":
+          description: OK
+  /pool:
+    post:
+      summary: Havuz hesabı
+      description: Havuz hesabı
+      operationId: pool
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pool'
+      responses:
+        "200":
+          description: OK
+  /cold-storage:
+    post:
+      summary: Soğuk depo hesabı
+      description: Soğuk depo hesabı
+      operationId: cold-storage
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ColdStorage'
+      responses:
+        "200":
+          description: OK
+  /pipe-insulation:
+    post:
+      summary: Boru yalıtımı
+      description: Boru yalıtım hesabı
+      operationId: pipe-insulation
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipeInsulation'
+      responses:
+        "200":
+          description: OK
+  /parking-ventilation:
+    post:
+      summary: Otopark Havalandırma
+      description: Otopark Havalandırma
+      operationId: parking-ventilation
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParkingVentilation'
+      responses:
+        "200":
+          description: OK
+  /shelter-ventilation:
+    post:
+      summary: Sığınak Havalandırma
+      description: Sığınak Havalandırma
+      operationId: shelter-ventilation
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShelterVentilation'
+      responses:
+        "200":
+          description: OK
+  /pipe-pressure-loss:
+    post:
+      summary: Boru basınç kaybı
+      description: Boru basınç kaybı
+      operationId: pipe-pressure-loss
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipePressureLoss'
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    Boiler:
+      required:
+      - DistributionPipe
+      - FuelType
+      - HeatNeed
+      - Piece
+      type: object
+      properties:
+        FuelType:
+          type: integer
+          example: 1
+        DistributionPipe:
+          type: string
+          example: ZR1
+        HeatNeed:
+          type: integer
+          example: 250000
+        Piece:
+          type: integer
+          example: 1
+    HeatExchanger:
+      required:
+      - HeatNeed
+      - HeatedFluidAvg
+      - HeaterFluidAvg
+      - Piece
+      - PollutionFactor
+      - TotalPass
+      type: object
+      properties:
+        HeatNeed:
+          type: integer
+          example: 250000
+        TotalPass:
+          type: integer
+          example: 1150
+        Piece:
+          type: integer
+          example: 1
+        HeaterFluidAvg:
+          type: integer
+          example: 110
+        HeatedFluidAvg:
+          type: integer
+          example: 80
+        PollutionFactor:
+          type: number
+          example: 0.25
+    Burner:
+      required:
+      - BoilerCapacity
+      - BurnerEfficiency
+      - LiquitFuelType
+      type: object
+      properties:
+        BoilerCapacity:
+          type: integer
+          example: 250000
+        LiquitFuelType:
+          type: string
+          example: Lpg
+        BurnerEfficiency:
+          type: integer
+          example: 90
+    FuelAmount:
+      required:
+      - BoilerCapacity
+      - FuelType
+      - LiquitFuelType
+      - Piece
+      type: object
+      properties:
+        FuelType:
+          type: integer
+          example: 0
+        LiquitFuelType:
+          type: string
+          example: Lpg
+        BoilerCapacity:
+          type: integer
+          example: 250000
+        BoilerEfficiency:
+          type: integer
+          example: 90
+        BurnerEfficiency:
+          type: integer
+          example: 90
+        FuelTemperature:
+          type: number
+          example: 2.1
+        DailyWorkingTime:
+          type: integer
+          example: 14
+        YearlyWorkingTime:
+          type: integer
+          example: 150
+        StoredDays:
+          type: integer
+          example: 20
+        LiquidOccupancyRate:
+          type: number
+          example: 0.9
+        SolidStackLoad:
+          type: number
+          example: 1.5
+        Piece:
+          type: integer
+          example: 1
+    FuelAmountYearly:
+      required:
+      - BuildingArea
+      - FuelType
+      - LiquitFuelType
+      - Piece
+      - YearlyHeatingEnergy
+      type: object
+      properties:
+        FuelType:
+          type: integer
+          example: 0
+        LiquitFuelType:
+          type: string
+          example: Lpg
+        BoilerCapacity:
+          type: integer
+          example: 250000
+        BoilerrEfficiency:
+          type: integer
+          example: 90
+        BurnerEfficiency:
+          type: integer
+          example: 90
+        FuelTemperature:
+          type: number
+          example: 2.1
+        YearlyWorkingTime:
+          type: integer
+          example: 150
+        LiquidOccupancyRate:
+          type: number
+          example: 0.9
+        SolidStackLoad:
+          type: number
+          example: 1.5
+        YearlyHeatingEnergy:
+          type: number
+          example: 95.86
+        BuildingArea:
+          type: number
+          example: 158.4
+        Piece:
+          type: integer
+          example: 1
+    OpenExpansionTank:
+      required:
+      - BoilerCapacity
+      - HeaterType
+      - WaterHeat
+      type: object
+      properties:
+        BoilerCapacity:
+          type: integer
+          example: 250000
+        HeaterType:
+          type: string
+          example: Konvektör
+        WaterHeat:
+          type: integer
+          example: 80
+    ClosedExpansionTank:
+      required:
+      - BoilerCapacity
+      - HeaterType
+      - StaticHeight
+      - ValveType
+      - WaterHeat
+      type: object
+      properties:
+        BoilerCapacity:
+          type: integer
+          example: 100000
+        HeaterType:
+          type: string
+          example: Döşemeden ısıtma
+        WaterHeat:
+          type: integer
+          example: 50
+        StaticHeight:
+          type: integer
+          example: 10
+        OpeningPressure:
+          type: number
+          example: 2.5
+        ValveType:
+          type: integer
+          example: 1
+        Piece:
+          type: integer
+          example: 1
+    CirculationPump:
+      required:
+      - BoilerCapacity
+      - Piece
+      - PressureDrop
+      - TemperatureDiff
+      type: object
+      properties:
+        BoilerCapacity:
+          type: integer
+          example: 300000
+        TemperatureDiff:
+          type: integer
+          example: 20
+        Piece:
+          type: integer
+          example: 1
+        PressureDrop:
+          type: integer
+          example: 8800
+    Boyler:
+      required:
+      - BuildType
+      - Equipments
+      - PrepareTime
+      type: object
+      properties:
+        BuildType:
+          type: string
+          example: Bağımsız ev
+        Equipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Boyler_Equipments'
+        PrepareTime:
+          type: integer
+          example: 1
+        SpecificHeat:
+          type: number
+          example: 4.2
+        Density:
+          type: integer
+          example: 1
+        BoylerTempIn:
+          type: integer
+          example: 10
+        BoylerTempOut:
+          type: integer
+          example: 60
+    RainWater:
+      required:
+      - Location
+      - RainArea
+      - RainPipe
+      - RoofType
+      type: object
+      properties:
+        Location:
+          type: string
+          example: İzmir
+        RainArea:
+          type: integer
+          example: 900
+        RoofType:
+          type: string
+          example: Çatı eğimi > 3°, Beton Çatılar, Rampalar
+        RainPipe:
+          type: integer
+          example: 6
+    Hydrophore:
+      required:
+      - BuildType
+      - NumberOfPeople
+      - OtherLosses
+      - Piece
+      - PipePressureLoss
+      - StoredTime
+      type: object
+      properties:
+        BuildType:
+          type: string
+          example: Duşlu veya küvetli konut
+        NumberOfPeople:
+          type: integer
+          example: 64
+        StoredTime:
+          type: integer
+          example: 10
+        Piece:
+          type: integer
+          example: 1
+        PipePressureLoss:
+          type: integer
+          example: 1500
+        OtherLosses:
+          type: integer
+          example: 500
+        UsingConcurrentFactor:
+          type: number
+          example: 0.4
+        HydrophoreFactor:
+          type: number
+          example: 0.7
+    Collector:
+      required:
+      - CollectorCapacity
+      - TempratureAvg
+      - TransferorWater
+      - WaterRegime
+      type: object
+      properties:
+        WaterRegime:
+          type: integer
+          example: 0
+        CollectorCapacity:
+          type: integer
+          example: 465000
+        TempratureAvg:
+          type: integer
+          example: 20
+        TransferorWater:
+          type: integer
+          example: 30
+        SpecificHeat:
+          type: integer
+          example: 4180
+        Density:
+          type: integer
+          example: 1000
+    SolarEnergy:
+      required:
+      - BuildType
+      - CapacityCoverageRate
+      - CollectorBrand
+      - CollectorType
+      - Location
+      - NumberOfPeople
+      - SafetyFactor
+      type: object
+      properties:
+        Location:
+          type: string
+          example: Antalya
+        BuildType:
+          type: string
+          example: Banyolu konut
+        NumberOfPeople:
+          type: integer
+          example: 200
+        SafetyFactor:
+          type: integer
+          example: 5
+        CapacityCoverageRate:
+          type: integer
+          example: 20
+        CollectorBrand:
+          type: string
+          example: Kalde
+        CollectorType:
+          type: string
+          example: BSS250E3
+    Paddlebox:
+      required:
+      - Devices
+      - HeatSourceDistance
+      - KitchenArea
+      - KitchenDensity
+      - KitchenHeight
+      - KitchenType
+      - OverflowAirFactor
+      - PaddleboxHeight
+      - PaddleboxWidth
+      - ReductionFactorPos
+      type: object
+      properties:
+        KitchenType:
+          type: string
+          example: Küçük
+        KitchenDensity:
+          type: string
+          example: Orta
+        KitchenArea:
+          type: integer
+          example: 72
+        KitchenHeight:
+          type: integer
+          example: 3
+        PaddleboxWidth:
+          type: number
+          example: 4.285
+        PaddleboxHeight:
+          type: number
+          example: 1.75
+        HeatSourceDistance:
+          type: number
+          example: 2.1
+        OverflowAirFactor:
+          type: number
+          example: 1.2
+        ReductionFactorPos:
+          type: string
+          example: Serbest (Ada)
+        Devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Paddlebox_Devices'
+    Pool:
+      required:
+      - CirculationPeriod
+      - LightingIntensity
+      - NumberOfUser
+      - PoolArea
+      - PoolVolume
+      - SuctionStrainerArea
+      type: object
+      properties:
+        PoolVolume:
+          type: integer
+          example: 75
+        PoolArea:
+          type: integer
+          example: 50
+        NumberOfUser:
+          type: integer
+          example: 8
+        CirculationPeriod:
+          type: integer
+          example: 6
+        LightingIntensity:
+          type: integer
+          example: 350
+        SuctionStrainerArea:
+          type: number
+          example: 0.04
+        FeedWaterSpeed:
+          type: number
+          example: 2.5
+        SuctionWaterSpeed:
+          type: number
+          example: 1.5
+        SuctionCollectorSpeed:
+          type: number
+          example: 0.5
+        ReinforcementPerPerson:
+          type: integer
+          example: 30
+        LightingLampIntensity:
+          type: integer
+          example: 4000
+    ColdStorage:
+      required:
+      - BreathingHeatExample
+      - EnclosureType
+      - EngineLoad
+      - EntryTemp
+      - HeatGain
+      - LightingLoad
+      - NumberOfPeople
+      - OtherLoads
+      - ProductQuantity
+      - ProductType
+      - StorageVolume
+      - SystemSafetyHike
+      type: object
+      properties:
+        ProductType:
+          type: string
+          example: Elma
+        EnclosureType:
+          type: string
+          example: Serin muhafaza
+        ProductQuantity:
+          type: integer
+          example: 3672
+        EntryTemp:
+          type: integer
+          example: 30
+        HeatGain:
+          type: number
+          example: 492.6
+        LightingLoad:
+          type: integer
+          example: 100
+        EngineLoad:
+          type: integer
+          example: 350
+        OtherLoads:
+          type: integer
+          example: 0
+        NumberOfPeople:
+          type: integer
+          example: 2
+        StorageVolume:
+          type: number
+          example: 19.9
+        SystemSafetyHike:
+          type: integer
+          example: 10
+        BreathingHeat:
+          type: integer
+          example: 2
+        BreathingHeatExample:
+          type: integer
+          example: 7342
+        OutdoorEnthalpy:
+          type: integer
+          example: 81
+        IndoorEnthalpy:
+          type: integer
+          example: 8
+        AirDensity:
+          type: number
+          example: 1.12
+        ShiftLength:
+          type: integer
+          example: 2
+        SystemUptime:
+          type: integer
+          example: 20
+    PipeInsulation:
+      required:
+      - LineLength
+      - PipeDiameter
+      - ServicePipeType
+      - SheathPipeType
+      - SoilFillingHeight
+      - SoilTemperature
+      - SoilType
+      - WaterFlow
+      type: object
+      properties:
+        ServicePipeType:
+          type: string
+          example: Siyah çelik
+        PipeDiameter:
+          type: integer
+          example: 150
+        SheathPipeType:
+          type: string
+          example: HDPE s1
+        SoilType:
+          type: string
+          example: Kum(1500)
+        SoilTemperature:
+          type: integer
+          example: 5
+        FluidAvgTemperature:
+          type: integer
+          example: 90
+        SoilFillingHeight:
+          type: number
+          example: 0.5
+        LineLength:
+          type: integer
+          example: 200
+        WaterFlow:
+          type: integer
+          example: 45
+        WaterMass:
+          type: integer
+          example: 1000
+        SpecificHeatOfWater:
+          type: number
+          example: 4.208
+        MaterialLamda:
+          type: number
+          example: 0.028
+    ParkingVentilation:
+      required:
+      - CalculationType
+      - DrivingRoadLength
+      - FlowCalcMethod
+      - NumberOfVehicles
+      - ParkingArea
+      - ParkingHeight
+      - ParkingType
+      type: object
+      properties:
+        CalculationType:
+          type: integer
+          example: 1
+        ParkingType:
+          type: string
+          example: Diğer
+        FlowCalcMethod:
+          type: integer
+          example: 0
+        ParkingArea:
+          type: integer
+          example: 4000
+        ParkingHeight:
+          type: integer
+          example: 3
+        NumberOfVehicles:
+          type: integer
+          example: 200
+        DrivingRoadLength:
+          type: integer
+          example: 15
+        WasteGasCO:
+          type: integer
+          example: 75
+        OutdoorCO:
+          type: integer
+          example: 2
+        VehicleExitFrequency:
+          type: integer
+          example: 60
+        ParkingSpeed:
+          type: integer
+          example: 10
+        DetectorDensity:
+          type: integer
+          example: 200
+    ShelterVentilation:
+      required:
+      - CalculationType
+      - NeedFreshAir
+      - ShelterArea
+      - ShelterHeight
+      type: object
+      properties:
+        CalculationType:
+          type: integer
+          example: 1
+        NeedFreshAir:
+          type: integer
+          example: 3
+        ShelterArea:
+          type: integer
+          example: 150
+        ShelterHeight:
+          type: integer
+          example: 3
+        SandFilterAirFlow:
+          type: integer
+          example: 60
+        SandFilterHeight:
+          type: integer
+          example: 2
+        SandFilterAirSpeed:
+          type: number
+          example: 1.5
+        SandFilterPermeabilityRate:
+          type: integer
+          example: 50
+    PipePressureLoss:
+      required:
+      - DiameterAdvice
+      - FluidType
+      - GoingTemp
+      - Lines
+      - MaxLoad
+      - MaxSpeed
+      - MinLoad
+      - MinSpeed
+      - ReturnTemp
+      type: object
+      properties:
+        MinSpeed:
+          type: number
+          example: 0.2
+        MaxSpeed:
+          type: number
+          example: 0.2
+        MinLoad:
+          type: integer
+          example: 5000
+        MaxLoad:
+          type: integer
+          example: 250000
+        GoingTemp:
+          type: integer
+          example: 90
+        ReturnTemp:
+          type: integer
+          example: 70
+        FluidType:
+          type: string
+          example: Su
+        DiameterAdvice:
+          type: string
+          example: Hız Düşümü
+        Lines:
+          type: array
+          items:
+            $ref: '#/components/schemas/PipePressureLoss_Lines'
+    Data:
+      required:
+      - Types
+      type: object
+      properties:
+        Types:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data_Types'
+    Boyler_Equipments:
+      type: object
+      properties:
+        Name:
+          type: string
+          example: Banyo
+        Piece:
+          type: integer
+          example: 1
+    Paddlebox_Devices:
+      type: object
+      properties:
+        Name:
+          type: string
+          example: Elektrikli Ocak
+        Piece:
+          type: integer
+          example: 1
+    PipePressureLoss_Lines:
+      type: object
+      properties:
+        Name:
+          type: string
+          example: "1"
+        Connection:
+          type: integer
+          example: 3
+        PartLoad:
+          type: number
+          example: 5000
+        LineLoad:
+          type: number
+          example: 5000
+        Length:
+          type: number
+          example: 1
+        PipeType:
+          type: string
+          example: DIN 2440
+    Data_Types:
+      type: object
+      properties:
+        Name:
+          type: string
+          example: BuildType
+        Condition:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: BuildType
+            - type: string
+              example: Okul
+            - type: string
+              example: '!='

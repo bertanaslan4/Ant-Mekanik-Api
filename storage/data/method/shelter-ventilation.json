@@ -1,0 +1,117 @@
+{
+    "Title": "Sığınak Havalandırma",
+    "Description": "Sığınak Havalandırma",
+    "Params": {
+        "CalculationType": {
+            "Name": "Hesaplama tipi",
+            "Rules": "required|exists:api__shelter_calculation,code",
+            "Type": "Input",
+            "Short": "index",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "ShelterCalculation"
+            }
+        },
+        "NeedFreshAir": {
+            "Name": "Taze hava ihtiyacı",
+            "Rules": "required|exists:api__shelter_fresh_air,flow",
+            "Type": "Input",
+            "Unit": "m3/hinsan",
+            "Short": "Vtazekişi",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "ShelterFreshAir",
+                "Columns": "flow"
+            }
+        },
+        "ShelterArea": {
+            "Name": "Sığınak alanı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m2",
+            "Short": "alan"
+        },
+        "ShelterHeight": {
+            "Name": "Sığınak yüksekliği",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m",
+            "Short": "alan"
+        },
+        "SandFilterAirFlow": {
+            "Name": "Kum Filtresi için birim hava debisi",
+            "Type": "Input",
+            "Unit": "m3/h",
+            "Short": "brmdebi",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SandFilterAirFlow"
+            }
+        },
+        "SandFilterHeight": {
+            "Name": "Kum Filtresi yüksekliği",
+            "Type": "Input",
+            "Unit": "m3/h",
+            "Short": "h_kumfiltre",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SandFilterHeight"
+            }
+        },
+        "SandFilterAirSpeed": {
+            "Name": "Kum Filtresi hava hızı",
+            "Type": "Input",
+            "Unit": "m/sn",
+            "Short": "v_kumfiltre",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SandFilterAirSpeed"
+            }
+        },
+        "SandFilterPermeabilityRate": {
+            "Name": "Kum filtre difüzör geçirgenlik oranı",
+            "Type": "Input",
+            "Unit": "%",
+            "Short": "r_kumfiltre",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SandFilterPermeabilityRate"
+            }
+        },
+        "Filtration": {
+            "Name": "Filtrasyon",
+            "Type": "Output",
+            "Short": "filtre"
+        },
+        "NumberOfPeople": {
+            "Name": "İnsan sayısı",
+            "Type": "Output",
+            "Unit": "adet",
+            "Short": "insan"
+        },
+        "TotalFlow": {
+            "Name": "Toplam debi ihtiyacı",
+            "Type": "Output",
+            "Unit": "m3/h",
+            "Short": "Vdebi"
+        },
+        "SandFilterPool": {
+            "Name": "Kum filtre havuzu",
+            "Type": "Output",
+            "Unit": "m2",
+            "Short": "Akumfiltre"
+        },
+        "SandPoolDiffuserCalc": {
+            "Name": "Kum havuzu difüzör hesabı",
+            "Type": "Output",
+            "Unit": "m2",
+            "Short": "Adifüzör"
+        },
+        "SmokeEvacuation": {
+            "Name": "Yangın duman tahliye fanı",
+            "Type": "Output",
+            "Unit": "m3/h",
+            "Short": "Vyangın"
+        }
+    }
+}

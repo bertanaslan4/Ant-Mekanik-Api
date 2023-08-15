@@ -1,0 +1,113 @@
+{
+    "Title": "Boyler Hesabı",
+    "Description": "Boyler Hesabı",
+    "Params": {
+        "BuildType": {
+            "Name": "Bina Tipi",
+            "Type": "Input",
+            "Rules": "required|exists:api__build_type,build_type",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "BuildType",
+                "Columns": "build_type,build_code"
+            }
+        },
+        "Equipments": {
+            "Name": "Ekipmanlar(Çoklu gönderim yapılmalıdır. Nasıl gönderilmesi gerektiği örnek veride mevcut)",
+            "Type": "Input",
+            "Rules": "required",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "Equipment",
+                "Columns": "equipment"
+            }
+        },
+        "PrepareTime": {
+            "Name": "Hazırlama Süresi",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "h"
+        },
+        "TempIn": {
+            "Name": "Boyler giriş sıcaklığı",
+            "Type": "Input",
+            "Unit": "C",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "TempIn"
+            }
+        },
+        "TempOut": {
+            "Name": "Boyler çıkış sıcaklığı",
+            "Type": "Input",
+            "Unit": "C",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "TempOut"
+            }
+        },
+        "SpecificHeat": {
+            "Name": "Özgül ısı",
+            "Type": "Input",
+            "Short": "Cp",
+            "Unit": "kJ/kgK",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SpecificHeat"
+            }
+        },
+        "Density": {
+            "Name": "Yoğunluk",
+            "Type": "Input",
+            "Short": "P",
+            "Unit": "kg/m3",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "Density"
+            }
+        },
+        "StorageFactor": {
+            "Name": "Depolama Faktörü",
+            "Type": "Output",
+            "Short": "f_depo"
+        },
+        "UserFactor": {
+            "Name": "Kullanma Faktörü",
+            "Type": "Output",
+            "Short": "f_kullanma"
+        },
+        "WaterConsumption": {
+            "Name": "Su tüketimi(ani iht.)",
+            "Type": "Output",
+            "Unit": "L"
+        },
+        "AvgWaterConsumption": {
+            "Name": "Ortalama su tüketimi(ort. ani iht.)",
+            "Type": "Output",
+            "Unit": "L"
+        },
+        "BoilerCapacity": {
+            "Name": "Kazan kapasitesi",
+            "Type": "Output",
+            "Short": "Qk",
+            "Unit": "W"
+        },
+        "SelectedVolume": {
+            "Name": "Seçilen Hacim",
+            "Type": "Output",
+            "Short": "Vboyler",
+            "Unit": "L"
+        },
+        "TemperatureDiff": {
+            "Name": "Sıcaklık Farkı",
+            "Type": "Output",
+            "Unit": "C"
+        },
+        "HeatingLoad": {
+            "Name": "Isıtma yükü",
+            "Type": "Output",
+            "Short": "Qb",
+            "Unit": "W"
+        }
+    }
+}

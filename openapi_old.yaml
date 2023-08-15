@@ -1,0 +1,654 @@
+openapi: 3.0.0
+info:
+  title: Antmekanik API
+  description: Ehvac Antmekanik
+  contact:
+    email: fatihdemir178@gmail.com
+  version: 1.0.0-oas3
+servers:
+- url: http://ehvac.antmekanik.com/api
+paths:
+  /methods:
+    get:
+      summary: Metodlar ve Metod Verileri
+      description: Tüm metodları ve bu metod için gerekli verileri döner, Yine verilere
+        ait açıklama ve varsayılan değer gibi detay bilgilerini içerir.
+      operationId: methods
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /method/{method}:
+    get:
+      summary: Metod Verileri
+      description: Bellirli bir metod için gerekli ve varsayılan tüm verileri çeker.
+      operationId: method
+      parameters:
+      - name: method
+        in: path
+        description: Veri tipi giriniz (Örnek = boiler, burner, fuel-amaunt, fuel-amaunt-yearly,
+          heat-exchanger)
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /data/{type}:
+    get:
+      summary: Veri çekme
+      description: Genel veri tiplerini çekme
+      operationId: datatype
+      parameters:
+      - name: type
+        in: path
+        description: Veri tipi giriniz (Örnek = BuildType,Burner,Boiler,LocationRain,DistributionPipe,Equipment,FuelType,HeatExchanger,LiquitFuelType,NominalDiameter,Producer,RainColumnDiameter,RoofType,Seller,Valve,WaterExpansion)
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /data:
+    post:
+      summary: Veri çekme
+      description: Genel veri tiplerini çekme
+      operationId: data
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Data'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /boiler:
+    post:
+      summary: Kazan Hesabı
+      description: |
+        Kazan hesabı ve ısı yüzeyi hesabı <br>
+         - FuelType = Yakıt Tipi  <br>
+         0 =>  katı<br>
+         1 =>  sıvı<br>
+         2 =>  gaz<br>
+
+        - DistributionPipe = Dağıtım Boruları<br>
+         ZR1 => 0,05W/m2  Sıcak mahalden izoleli<br>
+         ZR2 => 0,1W/m2  Soğuk mahalden izoleli<br>
+         ZR3 => 0,15W/m2  Soğuk mahalden<br>
+
+        - HeatNeed = Isı İhtiyacı (W)<br>
+         - Piece = Kazan Adedi<br>
+      operationId: boiler
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Boiler'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /heat-exchanger:
+    post:
+      summary: Isı Değiştirici
+      description: |
+        Isı değiştirici hesabı <br>
+         - HeatNeed = Isı İhtiyacı (W)<br>
+         - TotalPass = Toplam Geçiş<br>
+         - Piece = Kazan Adedi<br>
+         - HeaterFluidAvg = Isıtıcı Akışkan Ort. (C)<br>
+         - HeatedFluidAvg = Isınan Akışkan Ort. (C)<br>
+         - PollutionFactor = Kirlenme Katsayısı<br>
+      operationId: heat-exchanger
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HeatExchanger'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /burner:
+    post:
+      summary: Burner
+      description: |
+        Brulor seçimi <br>
+         - BoilerCapacity = Kazan Kapasitesi (W)<br>
+         - BurnerEfficiency = Brulor Verimi (%)<br>
+         - LiquitFuelType = Yakıt Tipi<br>
+         (Lpg, Gas oil, Naturel Gas, Motorin, No4 Fuel-Oil, No5 Fuel-Oil, No6 Fuel-Oil, No8 Fuel-Oil)<br>
+      operationId: burner
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Burner'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /fuel-amount:
+    post:
+      summary: Yakıt Miktarı
+      description: |
+        Yakıt Miktarı <br>
+         - FuelType = Yakıt Tipi  <br>
+         0 =>  katı<br>
+         1 =>  sıvı<br>
+         2 =>  gaz<br>
+         - LiquitFuelType = Sıvı Yakıt Tipi<br>
+         (Lpg, Gas oil, Naturel Gas, Motorin, No4 Fuel-Oil, No5 Fuel-Oil, No6 Fuel-Oil, No8 Fuel-Oil)<br>
+         - BoilerCapacity = Kazan Kapasitesi (W)<br>
+         - BoilerEfficiency = Kazan Verimi (%)<br>
+         - BurnerEfficiency = Brulor Verimi (%)<br>
+         - FuelTemperature = Yakıt Isıtma Isısı (kj/KgC)<br>
+         - DailyWorkingTime = Günlük Çalışma Süresi (saat/gün)<br>
+         - YearlyWorkingTime = Yıllık Çalışma Süresi (gün)<br>
+         - StoredDays = Depolanacak Gün Sayısı (gün)<br>
+         - LiquidOccupancyRate = Sıvı Kakıtlarda Depo Doluluk Oranı<br>
+         - SolidStackLoad = Katı Yakıtlarda İstif Yük (m)<br>
+         - Piece = Adet <br>
+      operationId: fuel-amount
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FuelAmount'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /fuel-amount-yearly:
+    post:
+      summary: Yıllık Yakıt Miktarı
+      description: |
+        Yakıt Miktarı <br>
+         - FuelType = Yakıt Tipi  <br>
+         0 =>  katı<br>
+         1 =>  sıvı<br>
+         2 =>  gaz<br>
+         - LiquitFuelType = Sıvı Yakıt Tipi<br>
+         (Lpg, Gas oil, Naturel Gas, Motorin, No4 Fuel-Oil, No5 Fuel-Oil, No6 Fuel-Oil, No8 Fuel-Oil)<br>
+         - YearlyHeatingEnergy = Yıllık Isıtma Enerjisi (kwh/m2)<br>
+         - BuildingArea = Binanın Net Kullanım Alanı (m2)<br>
+         - BoilerEfficiency = Kazan Verimi (%)<br>
+         - BurnerEfficiency = Brulor Verimi (%)<br>
+         - FuelTemperature = Yakıt Isıtma Isısı (kj/KgC)<br>
+         - YearlyWorkingTime = Yıllık Çalışma Süresi (gün)<br>
+         - LiquidOccupancyRate = Sıvı Kakıtlarda Depo Doluluk Oranı<br>
+         - SolidStackLoad = Katı Yakıtlarda İstif Yük (m)<br>
+         - Piece = Adet <br>
+      operationId: fuel-amount-yearly
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FuelAmountYearly'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /open-expansion-tank:
+    post:
+      summary: Açık Genleşme Deposu
+      description: |
+        Açık Genleşme Deposu <br>
+         - BoilerCapacity = Kazan Kapasitesi (W)<br>
+         - HeaterType = Isıtıcı Sistem Tipi<br>
+         - WaterHeat = Su Isısı<br>
+      operationId: open-expansion-tank
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenExpansionTank'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /closed-expansion-tank:
+    post:
+      summary: Kapalı Genleşme Deposu
+      description: |
+        Kapalı Genleşme Deposu <br>
+         - BoilerCapacity = Kazan Kapasitesi (W)<br>
+         - HeaterType = Isıtıcı Sistem Tipi<br>
+         - WaterHeat = Su Isısı<br>
+         - StaticHeight = Statik Yükseklik<br>
+         - OpeningPressure = Açma Basıncı<br>
+         - ValveType = Ventil Tipi<br>
+         - Piece = Adet<br>
+      operationId: closed-expansion-tank
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClosedExpansionTank'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /circulation-pump:
+    post:
+      summary: Dolaşım Pompası
+      description: |
+        Dolaşım Pompası <br>
+         - BoilerCapacity = Kazan Kapasitesi (W)<br>
+         - TemperatureDiff = Sıcaklık farkı<br>
+         - Piece = Adet<br>
+         - PressureDrop = Sistem Basınç Kaybı<br>
+         PumpEfficiency, EngineEfficiency, SpecificHeat, Density parametreleri varsayılan değerler alınmaktadır. Bu değerler gönderilerek varsayılan değer ezilebilir.<br>
+      operationId: circulation-pump
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CirculationPump'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /boyler:
+    post:
+      summary: Boyler hesabı
+      description: |
+        Boyler Hesabı <br>
+         - BuildType = Bina Tipi<br>
+         - Equipments = Ekipmanlar<br>
+         - PrepareTime = Hazırlama Süresi<br>
+         SpecificHeat, Density,BoylerTempIn,BoylerTempOut parametreleri varsayılan değerler alınmaktadır. Bu değerler gönderilerek varsayılan değer ezilebilir.<br>
+      operationId: boyler
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Boyler'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+  /rain-water:
+    post:
+      summary: Yağmur suyu
+      description: |
+        Yağmur suyu Hesabı <br>
+         - Location = Lokasyon<br>
+         - RainArea = Yağmur alanı<br>
+         - RoofType = Çatı Tipi<br>
+         - RainPipe = Yağmur borusu<br>
+      operationId: rain-water
+      requestBody:
+        description: data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RainWater'
+      responses:
+        "201":
+          description: success
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: error
+components:
+  schemas:
+    Boiler:
+      required:
+      - DistributionPipe
+      - FuelType
+      - HeatNeed
+      - Piece
+      type: object
+      properties:
+        FuelType:
+          type: integer
+          example: 1
+        DistributionPipe:
+          type: string
+          example: ZR1
+        HeatNeed:
+          type: integer
+          example: 250000
+        Piece:
+          type: integer
+          example: 1
+    HeatExchanger:
+      required:
+      - HeatNeed
+      - HeatedFluidAvg
+      - HeaterFluidAvg
+      - Piece
+      - PollutionFactor
+      - TotalPass
+      type: object
+      properties:
+        HeatNeed:
+          type: integer
+          example: 250000
+        TotalPass:
+          type: integer
+          example: 1150
+        Piece:
+          type: integer
+          example: 1
+        HeaterFluidAvg:
+          type: integer
+          example: 110
+        HeatedFluidAvg:
+          type: integer
+          example: 80
+        PollutionFactor:
+          type: number
+          example: 0.25
+    Burner:
+      required:
+      - BoilerCapacity
+      - BurnerEfficiency
+      - LiquitFuelType
+      type: object
+      properties:
+        BoilerCapacity:
+          type: integer
+          example: 250000
+        LiquitFuelType:
+          type: string
+          example: Lpg
+        BurnerEfficiency:
+          type: integer
+          example: 90
+    FuelAmount:
+      required:
+      - BoilerCapacity
+      - FuelType
+      - LiquitFuelType
+      - Piece
+      type: object
+      properties:
+        FuelType:
+          type: integer
+          example: 0
+        LiquitFuelType:
+          type: string
+          example: Lpg
+        BoilerCapacity:
+          type: integer
+          example: 250000
+        BoilerEfficiency:
+          type: integer
+          example: 90
+        BurnerEfficiency:
+          type: integer
+          example: 90
+        FuelTemperature:
+          type: number
+          example: 2.1
+        DailyWorkingTime:
+          type: integer
+          example: 14
+        YearlyWorkingTime:
+          type: integer
+          example: 150
+        StoredDays:
+          type: integer
+          example: 20
+        LiquidOccupancyRate:
+          type: number
+          example: 0.9
+        SolidStackLoad:
+          type: number
+          example: 1.5
+        Piece:
+          type: integer
+          example: 1
+    FuelAmountYearly:
+      required:
+      - BuildingArea
+      - FuelType
+      - LiquitFuelType
+      - Piece
+      - YearlyHeatingEnergy
+      type: object
+      properties:
+        FuelType:
+          type: integer
+          example: 0
+        LiquitFuelType:
+          type: string
+          example: Lpg
+        BoilerCapacity:
+          type: integer
+          example: 250000
+        BoilerrEfficiency:
+          type: integer
+          example: 90
+        BurnerEfficiency:
+          type: integer
+          example: 90
+        FuelTemperature:
+          type: number
+          example: 2.1
+        YearlyWorkingTime:
+          type: integer
+          example: 150
+        LiquidOccupancyRate:
+          type: number
+          example: 0.9
+        SolidStackLoad:
+          type: number
+          example: 1.5
+        YearlyHeatingEnergy:
+          type: number
+          example: 95.86
+        BuildingArea:
+          type: number
+          example: 158.4
+        Piece:
+          type: integer
+          example: 1
+    OpenExpansionTank:
+      required:
+      - BoilerCapacity
+      - HeaterType
+      - WaterHeat
+      type: object
+      properties:
+        BoilerCapacity:
+          type: integer
+          example: 250000
+        HeaterType:
+          type: string
+          example: Konvektör
+        WaterHeat:
+          type: integer
+          example: 80
+    ClosedExpansionTank:
+      required:
+      - BoilerCapacity
+      - HeaterType
+      - StaticHeight
+      - ValveType
+      - WaterHeat
+      type: object
+      properties:
+        BoilerCapacity:
+          type: integer
+          example: 100000
+        HeaterType:
+          type: string
+          example: Döşemeden ısıtma
+        WaterHeat:
+          type: integer
+          example: 50
+        StaticHeight:
+          type: integer
+          example: 10
+        OpeningPressure:
+          type: number
+          example: 2.5
+        ValveType:
+          type: integer
+          example: 1
+        Piece:
+          type: integer
+          example: 1
+    CirculationPump:
+      required:
+      - BoilerCapacity
+      - Piece
+      - PressureDrop
+      - TemperatureDiff
+      type: object
+      properties:
+        BoilerCapacity:
+          type: integer
+          example: 300000
+        TemperatureDiff:
+          type: integer
+          example: 20
+        Piece:
+          type: integer
+          example: 1
+        PressureDrop:
+          type: integer
+          example: 8800
+    Boyler:
+      required:
+      - BuildType
+      - Equipments
+      - PrepareTime
+      type: object
+      properties:
+        BuildType:
+          type: string
+          example: Bağımsız ev
+        Equipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Boyler_Equipments'
+        PrepareTime:
+          type: integer
+          example: 1
+        SpecificHeat:
+          type: number
+          example: 4.2
+        Density:
+          type: integer
+          example: 1
+        BoylerTempIn:
+          type: integer
+          example: 10
+        BoylerTempOut:
+          type: integer
+          example: 60
+    RainWater:
+      required:
+      - Location
+      - RainArea
+      - RainPipe
+      - RoofType
+      type: object
+      properties:
+        Location:
+          type: string
+          example: İzmir
+        RainArea:
+          type: integer
+          example: 900
+        RoofType:
+          type: string
+          example: Çatı eğimi > 3°, Beton Çatılar, Rampalar
+        RainPipe:
+          type: integer
+          example: 6
+    Data:
+      required:
+      - Types
+      type: object
+      properties:
+        Types:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data_Types'
+    Boyler_Equipments:
+      type: object
+      properties:
+        Name:
+          type: string
+          example: Banyo
+        Piece:
+          type: integer
+          example: 1
+    Data_Types:
+      type: object
+      properties:
+        Name:
+          type: string
+          example: BuildType
+        Condition:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: BuildType
+            - type: string
+              example: Okul
+            - type: string
+              example: '!='

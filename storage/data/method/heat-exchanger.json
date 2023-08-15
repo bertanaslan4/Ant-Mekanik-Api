@@ -1,0 +1,75 @@
+{
+    "Title": "Isı Değiştirici",
+    "Description": "Isı değiştirici hesapı",
+    "Params": {
+        "HeatNeed": {
+            "Name": "Isı İhtiyacı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Qh",
+            "Unit": "W"
+        },
+        "TotalPass": {
+            "Name": "Toplam Geçiş",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "K",
+            "Unit": "w/m2K"
+        },
+        "Piece": {
+            "Name": "Adet",
+            "Rules": "required",
+            "Type": "Input"
+        },
+        "HeaterFluidAvg": {
+            "Name": "Isıtıcı Akışkan Ort.",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Dt1",
+            "Unit": "C"
+        },
+        "HeaterFluidAvg": {
+            "Name": "Isınan Akışkan Ort.",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Dt2",
+            "Unit": "C"
+        },
+        "PollutionFactor": {
+            "Name": "Kirlenme Katsayısı",
+            "Type": "Input",
+            "Short": "Zr",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "PollutionFactor"
+            }
+        },
+        "HeatExchangerCapacity": {
+            "Name": "Eşanjör kapasitesi",
+            "Type": "Output",
+            "Short": "Qk",
+            "Unit": "W"
+        },
+        "HeatingSurface": {
+            "Name": "Isıtma yüzeyi",
+            "Type": "Output",
+            "Short": "Ak",
+            "Unit": "m2"
+        },
+        "LogHeatDiff": {
+            "Name": "Ortalama log dtm",
+            "Type": "Output",
+            "Short": "Dtm",
+            "Unit": "C"
+        },
+        "HeatExchangerBrand": {
+            "Name": "Isı değiştirici markası",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "HeatExchanger",
+                "Columns": "DISTINCT brand_code"
+            }
+        }
+    }
+}

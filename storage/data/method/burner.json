@@ -1,0 +1,50 @@
+{
+    "Title": "Brülör",
+    "Description": "Brülör seçimi hesabı",
+    "Params": {
+        "BoilerCapacity": {
+            "Name": "Kazan kapasitesi",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Qk",
+            "Unit": "W"
+        },
+        "BurnerEfficiency": {
+            "Name": "Brülör verimi",
+            "Type": "Input",
+            "Short": "Nk",
+            "Unit": "%"
+        },
+        "LiquitFuelType": {
+            "Name": "Sıvı Yakıt tipi",
+            "Rules": "required|exists:api__liquit_fuel_type,name",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "LiquitFuelType",
+                "Columns": "name"
+            }
+        },
+        "LowerHeatValue": {
+            "Name": "Alt ısıl değer",
+            "Type": "Output",
+            "Short": "Hu",
+            "Unit": "kg/h"
+        },
+        "Capacity": {
+            "Name": "Kapasite",
+            "Type": "Output",
+            "Short": "B",
+            "Unit": "kg/h"
+        },
+        "BurnerBrand": {
+            "Name": "Brülör markası",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "Burner",
+                "Columns": "DISTINCT brand_code"
+            }
+        }
+    }
+}

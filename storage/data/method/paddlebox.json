@@ -1,0 +1,117 @@
+{
+    "Title": "Davlumbaz",
+    "Description": "Davlumbaz hesabı",
+    "Params": {
+        "KitchenType": {
+            "Name": "Mutfak tipi",
+            "Rules": "required|exists:api__kitchen,kitchen_type",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "Kitchen",
+                "Columns": "kitchen_type"
+            }
+        },
+        "KitchenDensity": {
+            "Name": "Mutfak yoğunluğu",
+            "Rules": "required|exists:api__kitchen,kitchen_density",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "Kitchen",
+                "Columns": "kitchen_density"
+            }
+        },
+        "KitchenArea": {
+            "Name": "Mutfak alanı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m2"
+        },
+        "KitchenHeight": {
+            "Name": "Mutfak yüksekliği",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m"
+        },
+        "PaddleboxWidth": {
+            "Name": "Davlumbaz en",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "L",
+            "Unit": "m"
+        },
+        "PaddleboxHeight": {
+            "Name": "Davlumbaz boy",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "B",
+            "Unit": "m"
+        },
+        "HeatSourceDistance": {
+            "Name": "Isı kaynağı ile davlumbazın alt noktası arası mesafe",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "z",
+            "Unit": "m"
+        },
+        "OverflowAirFactor": {
+            "Name": "Taşma havası faktör",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "a"
+        },
+        "ReductionFactorPos": {
+            "Name": "Azaltım faktörü (pozisyon)",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "r_pos",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "ReductionFactor",
+                "Columns": "position"
+            }
+        },
+        "Devices": {
+            "Name": "Davlumbaz altı cihazlar ve adetleri",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "r_pos"
+        },
+        "ConcurrencyFactor": {
+            "Name": "Eşzamanlılık faktörü",
+            "Type": "Output",
+            "Short": "ro",
+            "Unit": "φ"
+        },
+        "ReductionFactor": {
+            "Name": "Azaltım faktörü",
+            "Type": "Output",
+            "Short": "r"
+        },
+        "SensibleHeatConvective": {
+            "Name": "Duyulur ısı yayılımının konvektif kısmı",
+            "Type": "Output",
+            "Short": "Qsk",
+            "Unit": "W"
+        },
+        "TotalVapor": {
+            "Name": "Toplam nem",
+            "Type": "Output",
+            "Short": "nem",
+            "Unit": "g/h"
+        },
+        "ThermalAirFlow": {
+            "Name": "Termal Egzost hava debisi",
+            "Type": "Output",
+            "Short": "Vth",
+            "Unit": "m3/h"
+        },
+        "AirFlow": {
+            "Name": "Egzost hava debisi",
+            "Type": "Output",
+            "Short": "VERF",
+            "Unit": "m3/h"
+        }
+    }
+}

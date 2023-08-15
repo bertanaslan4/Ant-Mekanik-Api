@@ -1,0 +1,99 @@
+﻿<html>
+    <head>    
+    <link rel="stylesheet" href="/api/public/console/swagger-ui.css">
+        <script src="/api/public/console/swagger-ui-bundle.js"></script>
+        <script src="/api/public/console/jquery.min.js"></script>
+
+        <script src="https://chrisakers.github.io/json-view/javascripts/bttf_json.js"></script>
+        <script src="https://chrisakers.github.io/json-view/json-view.js"></script>
+
+        <script>
+
+            function render() {
+                var ui = SwaggerUIBundle({
+                    url: 'openapi.yaml',
+                    dom_id: '#swagger-ui',
+                    presets: [
+                        SwaggerUIBundle.presets.apis,
+                        SwaggerUIBundle.SwaggerUIStandalonePreset
+                    ],
+                    onComplete: setTimeout(function () {
+                        getParams()
+                    }, 2000)
+                });
+            }
+            var methods = {};
+
+            function getParams() {
+                $.ajax({
+                    url: "/api/methods",
+                    success: function (res) {
+                        methods = res;
+                        $.each(methods, function (method, data) {
+                            setMethod(method);
+                        });
+                    },
+                    error: function (result) {
+                    }
+                });
+            }
+
+            function setMethod(method) {
+
+                setTimeout(function () {
+                    var data = methods[method];
+                    var el = $('#operations-default-' + method);
+                    el.find('.opblock-summary-description').html(data.Title);
+
+                    var desc = '<p>' + data.Description + '</p></br>';
+
+                    desc += '<div>';
+                    desc += '<div style="width:47%; float:left">';
+                    desc += '<h4>Giriş Verileri : </h4>';
+                    desc += '<div class="methodInput">';
+                    desc += jsonview(JSON.stringify(data.Params['Input']));
+                    desc += '</div>';
+                    desc += '</div>';
+
+                    desc += '<div style="width:47%; float:right">';
+                    desc += '<h4>Çıkış Verileri : </h4>';
+                    desc += '<div class="methodOutput">';
+                    desc += jsonview(JSON.stringify(data.Params['Output']));
+                    desc += '</div>';
+                    desc += '</div>';
+
+                    desc += '</div>';
+                    desc += '<div style="clear:both"></div>';
+
+                    el.find('.opblock-description .renderedMarkdown').html(desc);
+
+                }, 200);
+            }
+
+            function translate() {
+
+            }
+
+            setTimeout(function () {
+                $('.opblock-summary.opblock-summary-post').on('click', function () {
+                    var id = $(this).closest("[id^=operations-default-]").attr('id');
+                    console.log(id);
+                    var method = id.replace("operations-default-", "");
+                    console.log(method);
+                    setMethod(method);
+                });
+            }, 2000)
+
+        </script>
+        <style>
+            .methodInput pre, .methodOutput pre {
+                height:300px;overflow-x: auto;
+            }
+            
+        </style>
+    </head>
+
+    <body onload="render()">
+    <div id="swagger-ui"></div>
+</body>
+</html>

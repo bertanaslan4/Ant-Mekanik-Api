@@ -1,0 +1,79 @@
+{
+    "Title": "Kollektör hesabı",
+    "Description": "Kollektör hesabı",
+    "Params": {
+        "WaterRegime": {
+            "Name": "Su rejimi",
+            "Type": "Input",
+            "Rules": "required|exists:api__water_speed,regime",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "WaterSpeed",
+                "Columns": "regime,regime_title"
+            }
+        },
+        "CollectorCapacity": {
+            "Name": "Kollektör kapasitesi",
+            "Type": "Input",
+            "Short": "Qh",
+            "Unit": "W"
+        },
+        "TempratureAvg": {
+            "Name": "Ortalama sıcaklık",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "dt",
+            "Unit": "C"
+        },
+        "TransferorWater": {
+            "Name": "Devreden su miktarı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "",
+            "Unit": "%"
+        },
+        "SpecificHeat": {
+            "Name": "Özgül ısı",
+            "Type": "Input",
+            "Short": "Cp",
+            "Unit": "J/kgK",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SpecificHeat"
+            }
+        },
+        "Density": {
+            "Name": "Yoğunluk",
+            "Type": "Input",
+            "Short": "P",
+            "Unit": "g/m3",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "Density"
+            }
+        },
+        "WaterSpeed": {
+            "Name": "Kollektör su hızı",
+            "Type": "Output",
+            "Unit": "m/sn"
+        },
+        "CollectorFlow": {
+            "Name": "Kollektör debisi",
+            "Type": "Output",
+            "Short": "Qkoll",
+            "Unit": "m3/h"
+        },
+        "CollectorDiameter": {
+            "Name": "Kollektör çapı",
+            "Type": "Output",
+            "Short": "DN",
+            "Unit": "mm"
+        },
+        "CollectorInch": {
+            "Name": "Kollektör inç",
+            "Type": "Output",
+            "Short": "DN_inch",
+            "Unit": "inç"
+        }
+    }
+}

@@ -1,0 +1,165 @@
+{
+    "Title": "Otopark Havalandırma",
+    "Description": "Otopark Havalandırma",
+    "Params": {
+        "CalculationType": {
+            "Name": "Hesaplama tipi",
+            "Rules": "required|exists:api__parking_calculation,code",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "ParkingCalculation"
+            }
+        },
+        "ParkingType": {
+            "Name": "Otopark cinsi",
+            "Rules": "required|exists:api__parking_type,type",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "ParkingType",
+                "Columns": "type"
+            }
+        },
+        "FlowCalcMethod": {
+            "Name": "Debi hesap yönetim",
+            "Rules": "required|exists:api__air_flow_calc_method,code",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "AirFlowCalcMethod",
+                "Columns": "code"
+            }
+        },
+        "ParkingArea": {
+            "Name": "Otopark alanı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m2",
+            "Short": "alan"
+        },
+        "ParkingHeight": {
+            "Name": "Otopark yüksekliği",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m",
+            "Short": "alan"
+        },
+        "NumberOfVehicles": {
+            "Name": "Araç sayısı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "adet",
+            "Short": "araç"
+        },
+        "DrivingRoadLength": {
+            "Name": "Sürüş yolu uzunluğu",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m",
+            "Short": "yol"
+        },
+        "WasteGasCO": {
+            "Name": "Atık gazlardaki CO değerine göre max. ",
+            "Type": "Input",
+            "Unit": "ppm",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "WasteGasCO"
+            }
+        },
+        "OutdoorCO": {
+            "Name": "Dış havadaki CO değeri",
+            "Type": "Input",
+            "Unit": "ppm",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "OutdoorCO"
+            }
+        },
+        "VehicleExitFrequency": {
+            "Name": "Araç çıkış sıklığı",
+            "Type": "Input",
+            "Unit": "%",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "VehicleExitFrequency"
+            }
+        },
+        "ParkingSpeed": {
+            "Name": "Otopark içi hız",
+            "Type": "Input",
+            "Unit": "km/h",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "ParkingSpeed"
+            }
+        },
+        "DetectorDensity": {
+            "Name": "Dedektör yoğunluğu",
+            "Type": "Input",
+            "Unit": "kadet/m2",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "DetectorDensity"
+            }
+        },
+        "FreshAir": {
+            "Name": "Park alanı başına taze hava",
+            "Type": "Output",
+            "Unit": "m3/hm2",
+            "Short": "min_debi"
+        },
+        "NumberOfExchanges": {
+            "Name": "Değişim sayısı",
+            "Type": "Output",
+            "Unit": "defa/h",
+            "Short": "degsay"
+        },
+        "TotalCulvertArea": {
+            "Name": "Doğal havalandırma toplam menfez alanı",
+            "Type": "Output",
+            "Unit": "m2",
+            "Short": "menfez"
+        },
+        "MinCulvertArea": {
+            "Name": "Araç başına minimum menfez alanı",
+            "Type": "Output",
+            "Unit": "m2",
+            "Short": "menfez"
+        },
+        "AirFlow": {
+            "Name": "Hava debisi",
+            "Type": "Output",
+            "Unit": "m3/h",
+            "Short": "Votopark"
+        },
+        "SmokeEvacuation": {
+            "Name": "Duman tahliye",
+            "Type": "Output",
+            "Unit": "m3/h",
+            "Short": "Vduman"
+        },
+        "MinDetectorNumber": {
+            "Name": "Minimum CO ve CH4 dedektör sayısı",
+            "Type": "Output",
+            "Unit": "m3/h",
+            "Short": "adet"
+        },
+        "AirFlowPerVehicle": {
+            "Name": "Araç başına hava debisi",
+            "Type": "Output",
+            "Unit": "m3/h"
+        },
+        "ActiveVo": {
+            "Name": "Vo hareketli",
+            "Type": "Output",
+            "Unit": "m3/h"
+        },
+        "MotionlessVo": {
+            "Name": "Vo hareketsiz",
+            "Type": "Output",
+            "Unit": "m3/h"
+        }
+    }
+}

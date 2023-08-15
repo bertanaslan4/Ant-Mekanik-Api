@@ -1,0 +1,119 @@
+{
+    "Title": "Açık Genleşme Deposu",
+    "Description": "Açık Genleşme Deposu",
+    "Params": {
+        "BoilerCapacity": {
+            "Name": "Kazan kapasitesi",
+            "Type": "Input",
+            "Rules": "required",
+            "Short": "Qk",
+            "Unit": "W"
+        },
+        "HeaterType": {
+            "Name": "Isıtıcı sistem tipi",
+            "Rules": "required|exists:api__heater_type,name",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "HeaterType"
+            }
+        },
+        "WaterHeat": {
+            "Name": "Su sıcaklığı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Dtm",
+            "Unit": "C"
+        },
+        "StaticHeight": {
+            "Name": "Statik yükseklik",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "m",
+            "Unit": "m"
+        },
+        "OpeningPressure": {
+            "Name": "Açma basıncı",
+            "Type": "Input",
+            "Short": "Pa",
+            "Unit": "Bar",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "OpeningPressure"
+            }
+        },
+        "ValveType": {
+            "Name": "Ventil tipi",
+            "Rules": "required|max:1",
+            "Type": "Input",
+            "Short": "Dtm",
+            "Unit": "C"
+        },
+        "Piece": {
+            "Name": "Adet",
+            "Type": "Input",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "Piece"
+            }
+        },
+        "Expansion": {
+            "Name": "Genleşme",
+            "Type": "Output",
+            "Short": "f"
+        },
+        "WaterExpansion": {
+            "Name": "Su Genleşmesi",
+            "Type": "Output",
+            "Short": "Water_f"
+        },
+        "UpperPressure": {
+            "Name": "Sistem işletme üst basıncı",
+            "Type": "Output",
+            "Short": "Pe",
+            "Unit": "Bar"
+        },
+        "TankPrePressure": {
+            "Name": "Depo ön basıncı",
+            "Type": "Output",
+            "Short": "Po",
+            "Unit": "Bar"
+        },
+        "WaterVolume": {
+            "Name": "Sistem su hacmi",
+            "Type": "Output",
+            "Short": "Vs",
+            "Unit": "Lt"
+        },
+        "TankVolume": {
+            "Name": "Depo hacmi",
+            "Type": "Output",
+            "Short": "Vn",
+            "Unit": "Lt"
+        },
+        "ExpandingWater": {
+            "Name": "genleşen su",
+            "Type": "Output",
+            "Short": "dV",
+            "Unit": "Lt"
+        },
+        "StartPreWaterVolume": {
+            "Name": "Başlangıç ön su hacmi",
+            "Type": "Output",
+            "Short": "Vv",
+            "Unit": "Lt"
+        },
+        "ValveDiameter": {
+            "Name": "Ventil çapı",
+            "Type": "Output",
+            "Short": "DN",
+            "Unit": "mm"
+        },
+        "ValveInch": {
+            "Name": "Ventil inç",
+            "Type": "Output",
+            "Short": "DN_inch",
+            "Unit": "inç"
+        }
+    }
+}

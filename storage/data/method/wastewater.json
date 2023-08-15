@@ -1,0 +1,51 @@
+{
+    "Title": "Pissu",
+    "Description": "Pissu (atıksu) hesabı",
+    "Params": {
+        "Emissivity": {
+            "Name": "Boru pürüzlülüğü",
+            "Rules": "required|exists:api__wastewater_diameter,emissivity",
+            "Type": "Input",
+            "Unit": "mm/m",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "WastewaterDiameter",
+                "Columns": "emissivity"
+            }
+        },
+        "Slope": {
+            "Name": "Yatay Eğim",
+            "Rules": "required|exists:api__wastewater_diameter,slope",
+            "Type": "Input",
+            "Options": {
+                "Type": "Static",
+                "Value": ["Yatay", "Düşey"]
+            }
+        },
+        "SystemType": {
+            "Name": "Sistem Tipi",
+            "Rules": "required",
+            "Type": "Input"
+        },
+        "PumpPushHeight": {
+            "Name": "Pompa Basma Yüksekliği",
+            "Type": "Input",
+            "Unit": "m"
+        },
+        "TotalConsumptionQuantity": {
+            "Name": "Toplam Tüketim Miktarı",
+            "Type": "Output",
+            "Unit": "l/sn"
+        },
+        "TotalConsumptionUnit": {
+            "Name": "Toplam Tüketim Birimi",
+            "Type": "Output",
+            "Unit": "YB"
+        },
+        "PipeDiameter": {
+            "Name": "Boru çapı",
+            "Type": "Output",
+            "Unit": "DN"
+        }
+    }
+}

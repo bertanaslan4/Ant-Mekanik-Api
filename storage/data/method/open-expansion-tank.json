@@ -1,0 +1,81 @@
+{
+    "Title": "Açık Genleşme Deposu",
+    "Description": "Açık Genleşme Deposu",
+    "Params": {
+        "BoilerCapacity": {
+            "Name": "Kazan kapasitesi",
+            "Type": "Input",
+            "Rules": "required",
+            "Short": "Qk",
+            "Unit": "W"
+        },
+        "HeaterType": {
+            "Name": "Isıtıcı sistem tipi",
+            "Rules": "required|exists:api__heater_type,name",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "HeaterType"
+            }
+        },
+        "WaterHeat": {
+            "Name": "Su sıcaklığı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Dtm",
+            "Unit": "C"
+        },
+        "Expansion": {
+            "Name": "Genleşme",
+            "Type": "Output",
+            "Short": "f"
+        },
+        "WaterExpansion": {
+            "Name": "Su Genleşmesi",
+            "Type": "Output",
+            "Short": "Water_f"
+        },
+        "WaterVolume": {
+            "Name": "Sistem su hacmi",
+            "Type": "Output",
+            "Short": "Vs",
+            "Unit": "Lt"
+        },
+        "TankVolume": {
+            "Name": "Tank hacmi",
+            "Type": "Output",
+            "Short": "Vt",
+            "Unit": "Lt"
+        },
+        "DiameterG": {
+            "Name": "Emniyet gidiş",
+            "Type": "Output",
+            "Short": "dg"
+        },
+        "DiameterD": {
+            "Name": "Emniyet Dönüş",
+            "Type": "Output",
+            "Short": "dd"
+        },
+        "DiameterH": {
+            "Name": "Haberci",
+            "Type": "Output",
+            "Short": "dh"
+        },
+        "DiameterInchG": {
+            "Name": "Emniyet gidiş inç",
+            "Type": "Output",
+            "Short": "dg_inch"
+        },
+        "DiameterInchD": {
+            "Name": "Emniyet dönüş inç",
+            "Type": "Output",
+            "Short": "dd_inch"
+        },
+        "DiameterInchH": {
+            "Name": "Haberci inç",
+            "Type": "Output",
+            "Short": "dh_inch"
+        }
+    }
+}

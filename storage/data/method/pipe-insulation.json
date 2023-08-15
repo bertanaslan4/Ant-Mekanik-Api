@@ -1,0 +1,207 @@
+{
+    "Title": "Boru yalıtımı",
+    "Description": "Boru yalıtım hesabı",
+    "Params": {
+        "ServicePipeType": {
+            "Name": "Servis boru cinsi",
+            "Rules": "required|exists:api__pipe_type,pipe_type",
+            "Type": "Input",
+            "Unit": "mm/m",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "PipeType",
+                "Columns": "pipe_type"
+            }
+        },
+        "PipeDiameter": {
+            "Name": "Boru çapı",
+            "Rules": "required|exists:api__nominal_diameter,nominal_d",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "NominalDiameter",
+                "Columns": "outer_d"
+            }
+        },
+        "SheathPipeType": {
+            "Name": "Kılıf boru cinsi",
+            "Rules": "required|exists:api__pipe,standart",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "SheathPipeType",
+                "Columns": "DISTINCT type"
+            }
+        },
+        "SoilType": {
+            "Name": "Toprak cinsi",
+            "Rules": "required|exists:api__soil_type,type",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "SoilType",
+                "Columns": "DISTINCT type"
+            }
+        },
+        "SoilTemperature": {
+            "Name": "Toprak sıcaklığı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "C",
+            "Short": "t2"
+        },
+        "FluidAvgTemperature": {
+            "Name": "Akışkan ort. Sıcaklık",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "C",
+            "Short": "t1"
+        },
+        "SoilFillingHeight": {
+            "Name": "Toprak dolgu yüksekliği",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m",
+            "Short": "h_toprak"
+        },
+        "LineLength": {
+            "Name": "Hat uzunluğu",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m",
+            "Short": "hat"
+        },
+        "WaterFlow": {
+            "Name": "Su debisi",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m3/h"
+        },
+        "WaterMass": {
+            "Name": "Suyun özkütlesi",
+            "Type": "Input",
+            "Unit": "kg/m3",
+            "Short": "r",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "WaterMass"
+            }
+        },
+        "SpecificHeatOfWater": {
+            "Name": "Suyun özgül ısısı",
+            "Type": "Input",
+            "Unit": "kj/kgC",
+            "Short": "Cp",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SpecificHeatOfWater"
+            }
+        },
+        "MaterialLamda": {
+            "Name": "Izolasyon malzemesinin lamda",
+            "Type": "Input",
+            "Unit": "kg/m3",
+            "Short": "r",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "MaterialLamda"
+            }
+        },
+        "NominalOuterD": {
+            "Name": "Nominal dış çap",
+            "Type": "Output",
+            "Unit": "mm",
+            "Short": "Do"
+        },
+        "NominalInnerD": {
+            "Name": "Nominal iç çap",
+            "Type": "Output",
+            "Unit": "mm",
+            "Short": "Di"
+        },
+        "InsulationThickness": {
+            "Name": "İzolasyon kalınlığı",
+            "Type": "Output",
+            "Unit": "mm",
+            "Short": "do"
+        },
+        "InsulationInnerD": {
+            "Name": "İzolasyon iç çap",
+            "Type": "Output",
+            "Unit": "mm",
+            "Short": "di"
+        },
+        "ServicePipeLamda": {
+            "Name": "Servis boru lamdası",
+            "Type": "Output",
+            "Unit": "W/m°C",
+            "Short": "Is"
+        },
+        "SheathPipeLamda": {
+            "Name": "Kılıf boru lamdası",
+            "Type": "Output",
+            "Unit": "W/m°C",
+            "Short": "Ipe"
+        },
+        "SoilLamda": {
+            "Name": "Toprağın lamdası",
+            "Type": "Output",
+            "Unit": "W/m°C",
+            "Short": "Ig"
+        },
+        "SurfaceTensionFillerHeight": {
+            "Name": "Yüzey gerilimi le dolgu yüksekliği",
+            "Type": "Output",
+            "Unit": "mm",
+            "Short": "z"
+        },
+        "ServicePipeResistance": {
+            "Name": "Servis borunun ısıl iletkenlik direnci",
+            "Type": "Output",
+            "Unit": "mC/W",
+            "Short": "Rs"
+        },
+        "InsulationMaterialResistance": {
+            "Name": "İzolasyon malzemesinin ısıl iletkenlik direnci",
+            "Type": "Output",
+            "Unit": "mC/W",
+            "Short": "Rpur"
+        },
+        "SheathPipeResistance": {
+            "Name": "Kılıf borunun ısıl iletkenlik direnci",
+            "Type": "Output",
+            "Unit": "mC/W",
+            "Short": "Rpe"
+        },
+        "SoilResistance": {
+            "Name": "Toprağın ısıl iletkenlik direnci",
+            "Type": "Output",
+            "Unit": "mC/W",
+            "Short": "U"
+        },
+        "CoefficientU": {
+            "Name": "Ön izolasyonlu paket borunun ısıl iletkenlik katsayısı (U)",
+            "Type": "Output",
+            "Unit": "W/m2C",
+            "Short": "Rs"
+        },
+        "TotalHeatLoss": {
+            "Name": "Toplam ısı kaybı",
+            "Type": "Output",
+            "Unit": "W",
+            "Short": "q"
+        },
+        "EndOfLineTemp": {
+            "Name": "Hattın sonunda akışkan sıcaklığı",
+            "Type": "Output",
+            "Unit": "C",
+            "Short": "t3"
+        },
+        "TempDiff": {
+            "Name": "Sıcaklık farkı",
+            "Type": "Output",
+            "Unit": "C",
+            "Short": "dt"
+        }
+    }
+}

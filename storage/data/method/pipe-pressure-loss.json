@@ -1,0 +1,99 @@
+{
+    "Title": "Boru basınç kaybı",
+    "Description": "Boru basınç kaybı",
+    "Params": {
+        "MinSpeed": {
+            "Name": "Minimum hız",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "min_hız",
+            "Unit": "m/sn"
+        },
+        "MaxSpeed": {
+            "Name": "Maksimum hız",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "max_hız",
+            "Unit": "m/sn"
+        },
+        "MinLoad": {
+            "Name": "Minimum yük",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "min_yük",
+            "Unit": "W"
+        },
+        "MaxLoad": {
+            "Name": "Maksimum yük",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "max_yük",
+            "Unit": "W"
+        },
+        "GoingTemp": {
+            "Name": "Gidiş Sıcaklığı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "tg",
+            "Unit": "C"
+        },
+        "ReturnTemp": {
+            "Name": "Dönüş Sıcaklığı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "tg",
+            "Unit": "C"
+        },
+        "FluidType": {
+            "Name": "Akışkan Tipi",
+            "Rules": "required|exists:api__fluid_type,type",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "FluidType",
+                "Columns": "DISTINCT type"
+            }
+        },
+        "DiameterAdvice": {
+            "Name": "Çap tavsiyesi",
+            "Rules": "required|exists:api__diameter_advice,type",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "DiameterAdvice",
+                "Columns": "DISTINCT type"
+            }
+        },
+        "Lines": {
+            "Name": "Hatlar",
+            "Type": "Input"
+        },
+        "WaterDensity": {
+            "Name": "Suyun Özkütlesi",
+            "Type": "Output",
+            "Unit": "kg/m3",
+            "Short": "r"
+        },
+        "SpecificHeatOfWater": {
+            "Name": "Suyun özgül ısısı",
+            "Type": "Output",
+            "Unit": "kj/kgC",
+            "Short": "Cp"
+        },
+        "WaterViscosity ": {
+            "Name": "Suyun Vizkositesi",
+            "Type": "Output",
+            "Short": "Vi"
+        },
+        "TempDiff": {
+            "Name": "Sıcaklık Farkı",
+            "Type": "Output",
+            "Short": "dt"
+        },
+        "TempAvg": {
+            "Name": "Sıcaklık Ortalaması",
+            "Type": "Output",
+            "Short": "dtm"
+        }
+    }
+}

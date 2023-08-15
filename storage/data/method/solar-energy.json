@@ -1,0 +1,165 @@
+{
+    "Title": "Güneş enerjisi",
+    "Description": "Güneş enerjisi",
+    "Params": {
+        "Location": {
+            "Name": "Merkez (il)",
+            "Type": "Input",
+            "Rules": "required|exists:api__solar_radiation,city",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "SolarRadiation",
+                "Columns": "city"
+            }
+        },
+        "BuildType": {
+            "Name": "Bina Tipi",
+            "Type": "Input",
+            "Rules": "required|exists:api__build_water_consumption,build_type",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "BuildWaterConsumption",
+                "Columns": "build_type"
+            }
+        },
+        "CollectorBrand": {
+            "Name": "Köllektör Markası",
+            "Type": "Input",
+            "Rules": "required|exists:api__collector,brand",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "Collector",
+                "Columns": "distinct brand as brand"
+            }
+        },
+        "CollectorType": {
+            "Name": "Köllektör Type",
+            "Type": "Input",
+            "Rules": "required|exists:api__collector,type",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "Collector",
+                "Columns": "distinct type as type"
+            }
+        },
+        "NumberOfPeople": {
+            "Name": "Toplam insan sayısı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "Adet"
+        },
+        "TempIn": {
+            "Name": "Sistem giriş sıcaklığı",
+            "Type": "Input",
+            "Unit": "C",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "TempIn"
+            }
+        },
+        "TempOut": {
+            "Name": "Sistem çıkış sıcaklığı",
+            "Type": "Input",
+            "Unit": "C",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "TempOut"
+            }
+        },
+        "SpecificHeat": {
+            "Name": "Özgül ısı",
+            "Type": "Input",
+            "Short": "Cp",
+            "Unit": "kJ/kgK",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SpecificHeatK"
+            }
+        },
+        "Density": {
+            "Name": "Yoğunluk",
+            "Type": "Input",
+            "Short": "P",
+            "Unit": "kg/m3",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "DensityK"
+            }
+        },
+        "SafetyFactor": {
+            "Name": "Emniyet faktörü",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "e"
+        },
+        "CapacityCoverageRate": {
+            "Name": "Kapasite karşılama oranı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "%"
+        },
+        "CorrectionFactor": {
+            "Name": "Montaj eğim açısına göre düzeltme faktörü 30 derece için",
+            "Type": "Input",
+            "Short": "f_koll",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "CollectorCorrectionFactor"
+            }
+        },
+        "CollectorSurface": {
+            "Name": "Kollektör yüzeyi",
+            "Type": "Output",
+            "Short": "S",
+            "Unit": "m2"
+        },
+        "CollectorEfficiency": {
+            "Name": "Kollektör verimi",
+            "Type": "Output",
+            "Short": "nk"
+        },
+        "DailyWaterConsumption": {
+            "Name": "Günlük su sarfiiyatı",
+            "Type": "Output",
+            "Unit": "lt/gün"
+        },
+        "DailyWaterNeed": {
+            "Name": "Kullanıcı başına günlük sıcak su ihtiyacı",
+            "Type": "Output",
+            "Short": "Vkg",
+            "Unit": "litre/kişi.gün"
+        },
+        "TemperatureDiff": {
+            "Name": "Sıcaklık Farkı",
+            "Type": "Output",
+            "Unit": "C"
+        },
+        "DailyEnergyNeed": {
+            "Name": "Günlük toplam enerji ihtiyacı",
+            "Type": "Output",
+            "Short": "Qi",
+            "Unit": "kcal/gün"
+        },
+        "Months": {
+            "Name": "Aylık veriler",
+            "Type": "Output"
+        },
+        "CollectorUsefulEnergy": {
+            "Name": "Kollektör tarafından tüketilen faydalı enerji ",
+            "Type": "Output",
+            "Short": "Qk",
+            "Unit": "kcal/gün.kollektör"
+        },
+        "CollectorNeeded": {
+            "Name": "İhtiyaç duyulan kollektör miktarı ",
+            "Type": "Output",
+            "Short": "K",
+            "Unit": "Adet"
+        },
+        "TotalSurfaceArea": {
+            "Name": "Alan m2 güneş tarlası",
+            "Type": "Output",
+            "Unit": "m2"
+        }
+    }
+}

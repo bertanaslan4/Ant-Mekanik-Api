@@ -1,0 +1,92 @@
+{
+    "Title": "Hidrofor hesabı",
+    "Description": "Hidrofor hesabı",
+    "Params": {
+        "BuildType": {
+            "Name": "Bina Tipi",
+            "Type": "Input",
+            "Rules": "required|exists:api__build_water_consumption,build_type",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "BuildWaterConsumption",
+                "Columns": "build_type"
+            }
+        },
+        "NumberOfPeople": {
+            "Name": "Toplam insan sayısı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "Adet"
+        },
+        "StoredTime": {
+            "Name": "Depolama süresi",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "gün"
+        },
+        "UsingConcurrentFactor": {
+            "Name": "Kullanma eşzaman faktörü",
+            "Type": "Input",
+            "Short": "fk",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "UsingConcurrentFactor"
+            }
+        },
+        "HydrophoreFactor": {
+            "Name": "Hidrofor faktörü",
+            "Type": "Input",
+            "Short": "fh",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "HydrophoreFactor"
+            }
+        },
+        "Piece": {
+            "Name": "Adet",
+            "Rules": "required",
+            "Type": "Input",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "Piece"
+            }
+        },
+        "PipePressureLoss": {
+            "Name": "Boru basınç kaybı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "Pa"
+        },
+        "OtherLosses": {
+            "Name": "Diğer kayıplar",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "Pa"
+        },
+        "DailyWaterConsumption": {
+            "Name": "Günlük su sarfiiyatı",
+            "Type": "Output",
+            "Unit": "lt/gün"
+        },
+        "TankVolume": {
+            "Name": "Depo hacmi",
+            "Type": "Output",
+            "Unit": "m3"
+        },
+        "SuddenNeed": {
+            "Name": "Ani ihtiyaç",
+            "Type": "Output",
+            "Unit": "m3/h"
+        },
+        "HydrophoreFlow": {
+            "Name": "Hidrofor debisi",
+            "Type": "Output",
+            "Unit": "m3/h"
+        },
+        "TotalLoss": {
+            "Name": "Toplam kayıp",
+            "Type": "Output",
+            "Unit": "Pa"
+        }
+    }
+}

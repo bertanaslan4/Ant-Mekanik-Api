@@ -1,0 +1,407 @@
+{
+    "BuildType": {
+        "table": "api__build_type",
+        "columns": {
+            "build_type": "BuildType",
+            "build_code": "BuildCode",
+            "storage_factor": "StorageFactor",
+            "user_factor": "UserFactor"
+        }
+    },
+    "Burner": {
+        "table": "api__burner",
+        "columns": {
+            "brand_code": "Brand",
+            "name": "Name",
+            "description": "Description",
+            "min_capacity": "MinCapacity",
+            "max_capacity": "MaxCapacity",
+            "fuel_type": "FuelType",
+            "standard": "Standard",
+            "max_gas_inlet_pressure": "MaxGasInletPressure",
+            "motor_power": "MotorPower",
+            "burner_type": "BurnerType",
+            "weight": "Weight",
+            "producer_code": "ProducerCode",
+            "katalog": "Catalog",
+            "web": "Web"
+        }
+    },
+    "Boiler": {
+        "table": "api__boiler",
+        "columns": {
+            "code": "Code",
+            "name": "Name",
+            "brand": "Brand",
+            "fuel_type": "FuelType",
+            "heat_power": "HeatPower",
+            "web": "Web",
+            "katalog": "Catalog"
+        }
+    },
+    "LocationRain": {
+        "table": "api__city_rain",
+        "columns": {
+            "city": "Location",
+            "avg_rain": "RainAvg",
+            "owerflow_rain": "RainOwerflow"
+        }
+    },
+    "DistributionPipe": {
+        "table": "api__distribution_pipe",
+        "columns": {
+            "code": "Code",
+            "description": "Description",
+            "zr": "Zr"
+        }
+    },
+    "Equipment": {
+        "table": "api__equipment",
+        "columns": {
+            "equipment": "Equipment",
+            "independent_house": "IndependentHouse",
+            "apartment": "Apartment",
+            "hospital": "Hospital",
+            "hotel": "Hotel",
+            "workplace": "Workplace",
+            "school": "School",
+            "industrial_plant": "IndustrialPlant"
+        }
+    },
+    "FuelType": {
+        "table": "api__fuel_type",
+        "columns": {
+            "code": "Code",
+            "description": "Description",
+            "kk": "Kk"
+        }
+    },
+    "HeatExchanger": {
+        "table": "api__heat_exchanger",
+        "columns": {
+            "name": "name",
+            "description": "Description",
+            "brand_code": "Brand",
+            "operating_pressure": "OperatingPressure",
+            "max_working_temperature": "MaxWorkingTemperature",
+            "standard": "Standard",
+            "he_type": "HeType",
+            "max_heat_surface": "MaxHeatSurface",
+            "height": "BrandCode",
+            "width": "Width",
+            "depth": "Depth",
+            "weight": "Weight",
+            "plaque_weight": "PlaqueWeight",
+            "producer_code": "ProducerCode",
+            "katalog": "Catalog",
+            "web": "Web"
+        }
+    },
+    "LiquitFuelType": {
+        "table": "api__liquit_fuel_type",
+        "columns": {
+            "name": "Name",
+            "lower_heat_value": "LowerHeatValue",
+            "fuel_density": "FuelDensity"
+        }
+    },
+    "NominalDiameter": {
+        "table": "api__nominal_diameter",
+        "columns": {
+            "nominal_d": "OuterD",
+            "outer_d": "NominalD",
+            "inner_d": "InnerD",
+            "inch": "Inch",
+            "wall_thickness": "WallThickness"
+        }
+    },
+    "Producer": {
+        "table": "api__producer",
+        "columns": {
+            "producer": "Producer",
+            "address1": "Address1",
+            "address2": "Address2",
+            "district": "District",
+            "city": "City",
+            "country": "Country",
+            "post_code": "PostCode",
+            "phone": "Phone",
+            "fax": "Fax",
+            "code": "Code"
+        }
+    },
+    "RainColumnDiameter": {
+        "table": "api__rain_column_diameter",
+        "columns": {
+            "flow": "Flow",
+            "load": "Load",
+            "diameter": "Diameter"
+        }
+    },
+    "RoofType": {
+        "table": "api__roof_type",
+        "columns": {
+            "roof_type": "RoofType",
+            "unload_factor": "UnloadFactor"
+        }
+    },
+    "Seller": {
+        "table": "api__producer",
+        "columns": {
+            "producer": "Producer",
+            "seller": "Seller",
+            "address1": "Address1",
+            "address2": "Address2",
+            "district": "District",
+            "city": "City",
+            "country": "Country",
+            "post_code": "PostCode",
+            "phone": "Phone",
+            "fax": "Fax",
+            "code": "Code"
+        }
+    },
+    "Valve": {
+        "table": "api__valve",
+        "columns": {
+            "effective_pressure": "EffectivePressure",
+            "boiler_capacity": "BoilerCapacity",
+            "dn": "Dn",
+            "inch": "Inch",
+            "type": "Type"
+        }
+    },
+    "PaddleBoxDevice": {
+        "table": "api__under_paddlebox_device",
+        "columns": {
+            "title": "title",
+            "rated_power": "rated_power",
+            "vapor": "vapor",
+            "sensible_heat": "sensible_heat"
+        }
+    },
+    "WaterExpansion": {
+        "table": "api__water_expansion",
+        "columns": {
+            "heat": "Heat",
+            "expansion": "Expansion"
+        }
+    },
+    "BuildWaterConsumption": {
+        "table": "api__build_water_consumption",
+        "columns": {
+            "build_type": "BuildType",
+            "daily_water": "DailyWaterConsumption"
+        }
+    },
+    "WaterSpeed": {
+        "table": "api__water_speed",
+        "columns": {
+            "regime": "Regime",
+            "regime_title": "RegimeTitle",
+            "water_speed": "WaterSpeed"
+        }
+    },
+    "SolarRadiation": {
+        "table": "api__solar_radiation",
+        "columns": {
+            "city": "City",
+            "beta": "Beta",
+            "month_1": "Month1",
+            "month_2": "Month2",
+            "month_3": "Month3",
+            "month_4": "Month4",
+            "month_5": "Month5",
+            "month_6": "Month6",
+            "month_7": "Month7",
+            "month_8": "Month8",
+            "month_9": "Month9",
+            "month_10": "Month10",
+            "month_11": "Month11",
+            "month_12": "Month12"
+        }
+    },
+    "Collector": {
+        "table": "api__collector",
+        "columns": {
+            "brand": "Brand",
+            "type": "Type",
+            "width": "Width",
+            "height": "Height",
+            "area": "Area",
+            "weight": "Weight",
+            "fluid": "Fluid",
+            "panel_in": "PanelIn",
+            "panel_out": "PanelOut",
+            "efficiency": "Efficiency",
+            "catalog": "Catalog",
+            "web": "Web",
+            "producer": "Producer"
+        }
+    },
+    "Kitchen": {
+        "table": "api__kitchen",
+        "columns": {
+            "kitchen_type": "KitchenType",
+            "kitchen_density": "KitchenDensity",
+            "ro_concurrency": "RoConcurrency"
+        }
+    },
+    "ReductionFactor": {
+        "table": "api__reduction_factor",
+        "columns": {
+            "position": "Position",
+            "r_factor": "RFactor"
+        }
+    },
+    "Product": {
+        "table": "api__product",
+        "columns": {
+            "product_type": "ProductType",
+            "enclosure_temp": "EnclosureTemp",
+            "relative_humidity": "RelativeHumidity",
+            "storage_time": "StorageTime",
+            "water_amount": "WaterAmount",
+            "freezing_point": "FreezingPoint",
+            "before_freezing": "BeforeFreezing",
+            "after_freezing": "AfterFreezing",
+            "freezing_heat": "FreezingHeat"
+        }
+    },
+    "EnclosureType": {
+        "table": "api__enclosure_type",
+        "columns": {
+            "enclosure_type": "Type",
+            "min_temp": "MinTemp",
+            "max_temp": "MaxTemp",
+            "time_h": "Time"
+        }
+    },
+    "HumanHeat": {
+        "table": "api__human_heat",
+        "columns": {
+            "temprature": "Temprature",
+            "heat": "Heat"
+        }
+    },
+    "AirExchange": {
+        "table": "api__air_exchange",
+        "columns": {
+            "room_volume": "RoomVolume",
+            "above_zero": "AboveZero",
+            "below_zero": "BelowZero"
+        }
+    },
+    "WastewaterEquipment": {
+        "table": "api__wastewater_equipment",
+        "columns": {
+            "equipment": "Equipment",
+            "consumption_quantity": "ConsumptionQuantity",
+            "consumption_unit": "ConsumptionUnit",
+            "pipe_diameter": "PipeDiameter"
+        }
+    },
+    "WastewaterDiameter": {
+        "table": "api__wastewater_diameter",
+        "columns": {
+            "emissivity": "Emissivity",
+            "slope": "Slope",
+            "diameter": "Diameter",
+            "consumption_quantity": "ConsumptionQuantity",
+            "tb": "Tb"
+        }
+    },
+    "VerticalWastewaterDiameter": {
+        "table": "api__vertical_wastewater_diameter",
+        "columns": {
+            "min_consumption_unit": "MinConsumptionUnit",
+            "max_consumption_unit": "MaxConsumptionUnit",
+            "diameter": "Diameter"
+        }
+    },
+    "Pipe": {
+        "table": "api__pipe",
+        "columns": {
+            "standart": "Standart",
+            "description": "Description",
+            "type": "Type",
+            "inch": "Inch",
+            "outer_d": "OuterD",
+            "nominal_d": "NominalD",
+            "wall_thickness": "WallThickness"
+        }
+    },
+    "PipeType": {
+        "table": "api__pipe_type",
+        "columns": {
+            "pipe_type": "PipeType",
+            "conductivity_coefficient": "ConductivityCoefficient"
+        }
+    },
+    "SoilType": {
+        "table": "api__soil_type",
+        "columns": {
+            "type": "Type",
+            "density": "Density",
+            "volumetric_humidity": "VolumetricHumidity",
+            "conductivity_coefficient": "ConductivityCoefficient"
+        }
+    },
+    "ParkingCalculation": {
+        "table": "api__parking_calculation",
+        "columns": {
+            "code": "Code",
+            "type": "Type"
+        }
+    },
+    "AirFlowCalcMethod": {
+        "table": "api__air_flow_calc_method",
+        "columns": {
+            "code": "Code",
+            "type": "Type",
+            "description": "Description"
+        }
+    },
+    "ParkingType": {
+        "table": "api__parking_type",
+        "columns": {
+            "type": "Type",
+            "min_flow": "MinFlow",
+            "number_of_changes": "NumberOfChanges"
+        }
+    },
+    "ShelterCalculation": {
+        "table": "api__shelter_calculation",
+        "columns": {
+            "code": "Code",
+            "description": "Description"
+        }
+    },
+    "ShelterFreshAir": {
+        "table": "api__shelter_fresh_air",
+        "columns": {
+            "max_people": "MaxPeople",
+            "flow": "Flow",
+            "0_danger_filter": "DangerFilter0",
+            "1_danger_filter": "DangerFilter1"
+        }
+    },
+    "DiameterAdvice": {
+        "table": "api__diameter_advice",
+        "columns": {
+            "type": "Type",
+            "line_load": "LineLoad",
+            "diameter": "Diameter"
+        }
+    },
+    "FluidType": {
+        "table": "api__fluid_type",
+        "columns": {
+            "type": "Type",
+            "temp_avg": "TempAvg",
+            "density": "Density",
+            "viscosity": "Viscosity",
+            "specific_heat": "SpecificHeat"
+        }
+    }
+}

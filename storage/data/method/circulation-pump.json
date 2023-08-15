@@ -1,0 +1,87 @@
+{
+    "Title": "Dolaşım Pompası",
+    "Description": "Dolaşım Pompası",
+    "Params": {
+        "BoilerCapacity": {
+            "Name": "Kazan kapasitesi",
+            "Type": "Input",
+            "Rules": "required",
+            "Short": "Qk",
+            "Unit": "W"
+        },
+        "TemperatureDiff": {
+            "Name": "Sıcaklık farkı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Dt",
+            "Unit": "C"
+        },
+        "Piece": {
+            "Name": "Adet",
+            "Type": "Input",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "Piece"
+            }
+        },
+        "PressureDrop": {
+            "Name": "Sistem Basınç Kaybı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Pa",
+            "Unit": ""
+        },
+        "PumpEfficiency": {
+            "Name": "Pompa verimi",
+            "Type": "Input",
+            "Short": "Np",
+            "Unit": "%",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "PumpEfficiency"
+            }
+        },
+        "EngineEfficiency": {
+            "Name": "Motor verimi",
+            "Type": "Input",
+            "Short": "Nm",
+            "Unit": "%",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "EngineEfficiency"
+            }
+        },
+        "SpecificHeat": {
+            "Name": "Özgül ısı",
+            "Type": "Input",
+            "Short": "Cp",
+            "Unit": "J/kgK",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SpecificHeat"
+            }
+        },
+        "Density": {
+            "Name": "Yoğunluk",
+            "Type": "Input",
+            "Short": "P",
+            "Unit": "g/m3",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "Density"
+            }
+        },
+        "PumpFlow": {
+            "Name": "Pompa debisi",
+            "Type": "Output",
+            "Short": "V",
+            "Unit": "m3/h"
+        },
+        "MotorPower": {
+            "Name": "Motor gücü",
+            "Type": "Output",
+            "Short": "Pm",
+            "Unit": "W"
+        }
+    }
+}

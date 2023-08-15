@@ -1,0 +1,237 @@
+{
+    "Title": "Soğuk Depo hesabı",
+    "Description": "Soğuk Depo hesabı",
+    "Params": {
+        "ProductType": {
+            "Name": "Ürün Tipi",
+            "Type": "Input",
+            "Rules": "required|exists:api__product,product_type",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "Product",
+                "Columns": "product_type"
+            }
+        },
+        "EnclosureType": {
+            "Name": "Muhafaza tipi",
+            "Type": "Input",
+            "Rules": "required|exists:api__enclosure_type,enclosure_type",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "EnclosureType",
+                "Columns": "enclosure_type"
+            }
+        },
+        "ProductQuantity": {
+            "Name": "Ürün miktarı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "Kg"
+        },
+        "EntryTemp": {
+            "Name": "Depoya giriş sıcaklığı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "t1",
+            "Unit": "C"
+        },
+        "HeatGain": {
+            "Name": "Toplam ısı kazancı (transmisyon + radyasyon)",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Qkazanc",
+            "Unit": "W"
+        },
+        "LightingLoad": {
+            "Name": "Aydınlatma Yükü",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Qayd",
+            "Unit": "W"
+        },
+        "EngineLoad": {
+            "Name": "Motor Yükü",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Qmotor",
+            "Unit": "W"
+        },
+        "OtherLoads": {
+            "Name": "Diğer yükler defrost vs",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Qdef",
+            "Unit": "W"
+        },
+        "NumberOfPeople": {
+            "Name": "İnsan Sayısı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "insan",
+            "Unit": "Adet"
+        },
+        "StorageVolume": {
+            "Name": "Depo Hacmi",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "depoh",
+            "Unit": "m3"
+        },
+        "SystemSafetyHike": {
+            "Name": "Sistem emniyet zammı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "f",
+            "Unit": "%"
+        },
+        "BreathingHeat": {
+            "Name": "Depolama sıcaklığına bağlı solunum ısısı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Qsol",
+            "Unit": "W/kg"
+        },
+        "BreathingHeatExample": {
+            "Name": "Solunum ısısı Qornek değeri",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Qornek",
+            "Unit": "W"
+        },
+        "OutdoorEnthalpy": {
+            "Name": "Dış hava entalpisi",
+            "Type": "Input",
+            "Short": "entd",
+            "Unit": "kj/kg"
+        },
+        "IndoorEnthalpy": {
+            "Name": "İç hava entalpisi",
+            "Type": "Input",
+            "Short": "enti",
+            "Unit": "kj/kg"
+        },
+        "AirDensity": {
+            "Name": "Havanın yoğunluğu",
+            "Type": "Input",
+            "Short": "yoğ",
+            "Unit": "kg/m3"
+        },
+        "ShiftLength": {
+            "Name": "Vardiya uzunluğu",
+            "Type": "Input",
+            "Short": "vardiya",
+            "Unit": "h"
+        },
+        "SystemUptime": {
+            "Name": "Sistem çalışma süresi",
+            "Type": "Input",
+            "Short": "tsistem",
+            "Unit": "h"
+        },
+        "UnitHumanLoad": {
+            "Name": "Birim insan yükü",
+            "Type": "Output",
+            "Short": "insyükü",
+            "Unit": "W"
+        },
+        "AirExchangeNumber": {
+            "Name": "Hava değişim sayısı",
+            "Type": "Output",
+            "Unit": "defa/h"
+        },
+        "StorageTemperature": {
+            "Name": "Muhafaza sıcaklığı",
+            "Type": "Output",
+            "Short": "t2",
+            "Unit": "C"
+        },
+        "FreezingPoint": {
+            "Name": "Donma noktası",
+            "Type": "Output",
+            "Short": "t3",
+            "Unit": "C"
+        },
+        "ProcessingTime": {
+            "Name": "İşlem süresi",
+            "Type": "Output",
+            "Short": "süre",
+            "Unit": "h"
+        },
+        "StorageTime": {
+            "Name": "Depolama süresi",
+            "Type": "Output",
+            "Short": "dsüre",
+            "Unit": "h"
+        },
+        "PeopleLoad": {
+            "Name": "İnsanlardan gelen yük",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "TotalLightingLoad": {
+            "Name": "Aydınlatma yükü",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "ElectricalLoad": {
+            "Name": "Elektriksel yük",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "TotalOtherLoads": {
+            "Name": "Diğer yükler defrost vs",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "VentilationLoad": {
+            "Name": "Havalandırma yükü",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "TotalHeatGain": {
+            "Name": "Toplam ısı kazancı",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "ProductTemperature": {
+            "Name": "Toplam ürün ısısı",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "SystemSafetyOverhead": {
+            "Name": "Sistem emniyet ilave yükü",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "SystemLoad": {
+            "Name": "Sistem yükü",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "SystemLoadDaily": {
+            "Name": "sistem yükü günlük çalışma saatine göre",
+            "Type": "Output",
+            "Unit": "W"
+        },
+        "BeforeFreezingLoad": {
+            "Name": "Donma Öncesi Yükler",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "FreezingLoad": {
+            "Name": "Donma Yükleri",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "AfterFreezingLoad": {
+            "Name": "Donma sonrası Yükler",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        },
+        "BreathingHeatLoad": {
+            "Name": "Solunum ısısı Yükleri",
+            "Type": "Output",
+            "Unit": "kj/gün"
+        }
+    }
+}

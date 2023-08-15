@@ -1,0 +1,155 @@
+{
+    "Title": "Kazan Hesabı",
+    "Description": "Kazan hesabı ve ısı yüzeyi hesabı",
+    "Params": {
+        "FuelType": {
+            "Name": "Yakıt tipi",
+            "Rules": "required|exists:api__fuel_type,code",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "FuelType"
+            }
+        },
+        "LiquitFuelType": {
+            "Name": "Sıvı Yakıt tipi",
+            "Rules": "required|exists:api__liquit_fuel_type,name",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "LiquitFuelType",
+                "Columns": "name"
+            }
+        },
+        "BoilerCapacity": {
+            "Name": "Kazan kapasitesi",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Qk",
+            "Unit": "W"
+        },
+        "BoilerEfficiency": {
+            "Name": "Kazan verimi",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Nk",
+            "Unit": "%"
+        },
+        "BurnerEfficiency": {
+            "Name": "Brülör verimi",
+            "Type": "Input",
+            "Short": "Nk",
+            "Unit": "%"
+        },
+        "FuelTemperature": {
+            "Name": "Yakıt ısıtma ısısı",
+            "Type": "Input",
+            "Short": "C0",
+            "Unit": "kj/KgC",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "FuelTemperature"
+            }
+        },
+        "DailyWorkingTime": {
+            "Name": "Günlük Çalışma Süresi",
+            "Type": "Input",
+            "Short": "Zg",
+            "Unit": "saat/gün",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "DailyWorkingTime"
+            }
+        },
+        "YearlyWorkingTime": {
+            "Name": "Yıllık Çalışma Süresi ",
+            "Type": "Input",
+            "Short": "Zy",
+            "Unit": "gün",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "YearlyWorkingTime"
+            }
+        },
+        "StoredDays": {
+            "Name": "Depolanacak Gün Sayısı",
+            "Type": "Input",
+            "Short": "Zp",
+            "Unit": "gün",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "StoredDays"
+            }
+        },
+        "LiquidOccupancyRate": {
+            "Name": "Sıvı Kakıtlarda Depo Doluluk Oranı",
+            "Type": "Input",
+            "Short": "P",
+            "Unit": "kj/KgC",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "LiquidOccupancyRate"
+            }
+        },
+        "SolidStackLoad": {
+            "Name": "Katı Yakıtlarda İstif Yük",
+            "Type": "Input",
+            "Short": "Qh",
+            "Unit": "m",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SolidStackLoad"
+            }
+        },
+        "Piece": {
+            "Name": "Adet",
+            "Rules": "required",
+            "Type": "Input"
+        },
+        "AvgFuelTemperature": {
+            "Name": "Ort. Yakıt sıcaklğı",
+            "Type": "Input",
+            "Short": "C",
+            "Unit": "C",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "AvgFuelTemperature"
+            }
+        },
+        "LowerHeatValue": {
+            "Name": "Alt ısıl değer",
+            "Type": "Output",
+            "Short": "Hu",
+            "Unit": "kg/h"
+        },
+        "FuelAmount": {
+            "Name": "Yakıt miktarı",
+            "Type": "Output",
+            "Short": "B",
+            "Unit": "kg/yıl"
+        },
+        "FuelDensity": {
+            "Name": "Yakıt yoğunluğu",
+            "Type": "Output",
+            "Unit": "kg/m3"
+        },
+        "LiquidTank": {
+            "Name": "sıvı yakıtlarda depo",
+            "Type": "Output",
+            "Short": "V",
+            "Unit": "m3"
+        },
+        "SolidFuelSurface": {
+            "Name": "Katı yakıtlarda alan",
+            "Type": "Output",
+            "Short": "A",
+            "Unit": "m2"
+        },
+        "PreheaterLoad": {
+            "Name": "Ön ısıtıcı yükü",
+            "Type": "Output",
+            "Short": "Qön",
+            "Unit": "W"
+        }
+    }
+}

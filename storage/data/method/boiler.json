@@ -1,0 +1,72 @@
+{
+    "Title": "Kazan Hesabı",
+    "Description": "Kazan hesabı ve ısı yüzeyi hesabı",
+    "Params": {
+        "FuelType": {
+            "Name": "Yakıt tipi",
+            "Rules": "required|exists:api__fuel_type,code",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "FuelType"
+            }
+        },
+        "DistributionPipe": {
+            "Name": "Dağıtım boruları",
+            "Rules": "required|exists:api__distribution_pipe,code",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "DistributionPipe"
+            }
+        },
+        "HeatNeed": {
+            "Name": "Isı ihtiyacı",
+            "Rules": "required",
+            "Type": "Input",
+            "Short": "Qh",
+            "Unit": "W"
+        },
+        "Piece": {
+            "Name": "Adet",
+            "Rules": "required",
+            "Type": "Input",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "Piece"
+            }
+        },
+        "BoilerUnitAvgHeat": {
+            "Name": "Kazan birim yüzey alanı ısı miktarı",
+            "Type": "Output",
+            "Short": "Kk",
+            "Unit": "W/m2"
+        },
+        "BoilerIncreaseFactor": {
+            "Name": "Kazan ısı yükü artırım katsayısı",
+            "Type": "Output",
+            "Short": "Zr"
+        },
+        "BoilerCapacity": {
+            "Name": "Kazan kapasitesi",
+            "Type": "Output",
+            "Short": "Qk",
+            "Unit": "W"
+        },
+        "HeatingSurface": {
+            "Name": "Isıtma yüzeyi",
+            "Type": "Output",
+            "Short": "Ak",
+            "Unit": "m2"
+        },
+        "BoilerBrand": {
+            "Name": "Kazan markası",
+            "Type": "Input",
+            "Options": {
+                "Type": "Dynamic",
+                "Value": "Boiler",
+                "Columns": "DISTINCT brand"
+            }
+        }
+    }
+}

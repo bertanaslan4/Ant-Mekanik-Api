@@ -1,0 +1,162 @@
+{
+    "Title": "Havuz hesabı",
+    "Description": "Havuz hesabı",
+    "Params": {
+        "PoolVolume": {
+            "Name": "Havuz su hacmi",
+            "Type": "Input",
+            "Rules": "required",
+            "Unit": "m3"
+        },
+        "PoolArea": {
+            "Name": "Havuz yüzey alanı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m2"
+        },
+        "NumberOfUser": {
+            "Name": "Kullanıcı sayısı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "Adet"
+        },
+        "CirculationPeriod": {
+            "Name": "Sirkülasyon periyodu",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "h"
+        },
+        "LightingIntensity": {
+            "Name": "Işık aydınlatma şiddeti",
+            "Rules": "required|numeric",
+            "Type": "Input",
+            "Unit": "lm/m2"
+        },
+        "SuctionStrainerArea": {
+            "Name": "Emiş süzgeci alanı",
+            "Rules": "required",
+            "Type": "Input",
+            "Unit": "m2"
+        },
+        "FeedWaterSpeed": {
+            "Name": "Besleme su hızı",
+            "Type": "Input",
+            "Unit": "m/sn",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "FeedWaterSpeed"
+            }
+        },
+        "SuctionWaterSpeed": {
+            "Name": "Emme su hızı",
+            "Type": "Input",
+            "Unit": "m/sn",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SuctionWaterSpeed"
+            }
+        },
+        "SuctionCollectorSpeed": {
+            "Name": "Emiş kollektör hızı",
+            "Type": "Input",
+            "Unit": "m/sn",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "SuctionCollectorSpeed"
+            }
+        },
+        "ReinforcementPerPerson": {
+            "Name": "Kişi başı takviye",
+            "Type": "Input",
+            "Unit": "lt/gün",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "ReinforcementPerPerson"
+            }
+        },
+        "LightingLampIntensity": {
+            "Name": "Aydınlatma lamba şiddeti",
+            "Type": "Input",
+            "Unit": "lm",
+            "Default": {
+                "Type": "Dynamic",
+                "Value": "LightingLampIntensity"
+            }
+        },
+        "BalanceTankArea": {
+            "Name": "Denge tankı alanı",
+            "Type": "Output",
+            "Unit": "m5"
+        },
+        "FilterCapacity": {
+            "Name": "Filtre kapasitesi",
+            "Type": "Output",
+            "Unit": "m3/h"
+        },
+        "PumpFlow": {
+            "Name": "Pompa debisi",
+            "Type": "Output",
+            "Unit": "m3/h"
+        },
+        "FeedingNozzle": {
+            "Name": "Besleme nozul",
+            "Type": "Output",
+            "Unit": "Adet"
+        },
+        "FeedingNozzleFlow": {
+            "Name": "Besleme nozul debi",
+            "Type": "Output",
+            "Unit": "m3/h"
+        },
+        "SuctionStrainerAreaNet": {
+            "Name": "Emiş süzgeci net alanı (%75)",
+            "Type": "Output",
+            "Unit": "m2"
+        },
+        "FilterSuctionSpeed": {
+            "Name": "Süzgeç emiş hızı",
+            "Type": "Output",
+            "Unit": "m/s"
+        },
+        "TankDailyReinforcement": {
+            "Name": "Denge tankı günlük takviye",
+            "Type": "Output",
+            "Unit": "lt/gün"
+        },
+        "NumberOfLightingLamp": {
+            "Name": "Aydınlatma lamba sayısı",
+            "Type": "Output",
+            "Unit": "Adet"
+        },
+        "FeedPipe": {
+            "Name": "Besleme borusu(hesaplanan)",
+            "Type": "Output",
+            "Unit": "mm"
+        },
+        "SuctionPipe": {
+            "Name": "Emme borusu(hesaplanan)",
+            "Type": "Output",
+            "Unit": "mm"
+        },
+        "SuctionCollector": {
+            "Name": "Emme kollektör(hesaplanan)",
+            "Type": "Output",
+            "Unit": "mm"
+        },
+        "FeedPipeDiameter": {
+            "Name": "Besleme borusu çapı",
+            "Type": "Output",
+            "Unit": "mm"
+        },
+        "SuctionPipeDiameter": {
+            "Name": "Emme borusu çapı",
+            "Type": "Output",
+            "Unit": "mm"
+        },
+        "SuctionCollectorDiameter": {
+            "Name": "Emme kollektör çapı",
+            "Type": "Output",
+            "Unit": "mm"
+        }
+    }
+}
